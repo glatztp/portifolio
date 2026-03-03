@@ -3,7 +3,11 @@
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
-const LETTERS = "GABRIEL GLATZ".split("");
+const STRIPES: [string, number][] = [
+  ["#e8453c", 1.0],
+  ["#f5b800", 0.72],
+  ["#3d4fc4", 0.48],
+];
 
 export default function LoadingScreen({
   onComplete,
@@ -18,10 +22,10 @@ export default function LoadingScreen({
       setCount((prev) => {
         if (prev >= 100) {
           clearInterval(interval);
-          setTimeout(() => setDone(true), 300);
+          setTimeout(() => setDone(true), 500);
           return 100;
         }
-        const step = prev < 60 ? Math.random() * 4 + 1 : Math.random() * 8 + 2;
+        const step = prev < 60 ? Math.random() * 3 + 1 : Math.random() * 7 + 2;
         return Math.min(prev + step, 100);
       });
     }, 40);
@@ -33,79 +37,58 @@ export default function LoadingScreen({
       {!done && (
         <motion.div
           className="loader-wrap"
-          exit={{ y: "-100%" }}
-          transition={{ duration: 0.9, ease: [0.76, 0, 0.24, 1] }}
+          exit={{ y: "-102%" }}
+          transition={{ duration: 1.1, ease: [0.76, 0, 0.24, 1] }}
         >
-          {/* Name letters */}
-          <div className="flex items-center gap-[0.08em] overflow-hidden">
-            {LETTERS.map((char, i) => (
-              <motion.span
-                key={i}
-                initial={{ y: "110%", opacity: 0 }}
-                animate={{ y: "0%", opacity: 1 }}
-                transition={{
-                  duration: 0.7,
-                  delay: i * 0.055,
-                  ease: [0.22, 1, 0.36, 1],
-                }}
-                style={{
-                  display: "inline-block",
-                  fontSize: "clamp(2rem, 7vw, 6rem)",
-                  fontWeight: 900,
-                  letterSpacing: "0.06em",
-                  textTransform: "uppercase",
-                  color: char === " " ? "transparent" : "var(--fg)",
-                  width: char === " " ? "0.5em" : "auto",
-                  lineHeight: 1,
-                }}
-              >
-                {char === " " ? "\u00A0" : char}
-              </motion.span>
-            ))}
-          </div>
+          {/* Label */}
+          <motion.span
+            className="loader-label"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+          >
+            loading
+          </motion.span>
 
           {/* Counter */}
-          <motion.span
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.3 }}
-            style={{
-              position: "absolute",
-              bottom: "2.5rem",
-              right: "2.5rem",
-              fontSize: "0.7rem",
-              letterSpacing: "0.25em",
-              color: "#555",
-              fontVariantNumeric: "tabular-nums",
-            }}
-          >
-            {String(Math.round(count)).padStart(3, "0")}
-          </motion.span>
-
-          {/* Progress bar */}
           <motion.div
-            className="loader-bar"
-            style={{ width: `${count}%` }}
-            transition={{ ease: "linear" }}
-          />
+            className="loader-counter"
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+          >
+            <span className="loader-counter__digits">
+              {String(Math.round(count)).padStart(2, "0")}
+            </span>
+            <span className="loader-counter__pct">%</span>
+          </motion.div>
 
-          {/* Subtitle */}
-          <motion.span
+          {/* Stripe bars */}
+          <motion.div
+            className="loader-stripes"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ delay: 0.8 }}
-            style={{
-              position: "absolute",
-              bottom: "2.5rem",
-              left: "2.5rem",
-              fontSize: "0.65rem",
-              letterSpacing: "0.3em",
-              textTransform: "uppercase",
-              color: "#444",
-            }}
+            transition={{ delay: 0.35 }}
           >
-            Portfolio — 2026
-          </motion.span>
+            {STRIPES.map(([color, ratio]) => (
+              <div key={color} className="loader-stripe-track">
+                <motion.div
+                  className="loader-stripe-fill"
+                  style={{
+                    background: color,
+                    width: `${Math.min(count / ratio, 100)}%`,
+                    transition: "width 0.12s linear",
+                  }}
+                />
+              </div>
+            ))}
+          </motion.div>
+
+          {/* Bottom progress bar */}
+          <div
+            className="loader-bar"
+            style={{ width: `${count}%`, transition: "width 0.08s linear" }}
+          />
         </motion.div>
       )}
     </AnimatePresence>

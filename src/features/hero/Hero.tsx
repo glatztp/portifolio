@@ -1,181 +1,176 @@
 "use client";
 
-import { useRef } from "react";
-import { motion, useInView } from "framer-motion";
+import { motion } from "framer-motion";
 
-const SKILLS_MARQUEE = [
+const NAV = ["Sobre", "Projetos", "Contato"];
+const STRIPES = ["#e8453c", "#f5b800", "#3d4fc4"];
+const MARQUEE = [
   "React",
   "TypeScript",
   "Node.js",
   "Next.js",
   "Tailwind CSS",
+  "UI/UX",
   "SQL",
   "REST APIs",
-  "UI/UX Design",
   "React",
   "TypeScript",
   "Node.js",
   "Next.js",
   "Tailwind CSS",
+  "UI/UX",
   "SQL",
   "REST APIs",
-  "UI/UX Design",
 ];
 
-function SplitWords({
-  text,
-  className,
-  delay = 0,
-}: {
-  text: string;
-  className?: string;
-  delay?: number;
-}) {
-  const ref = useRef(null);
-  const inView = useInView(ref, { once: true, amount: 0.5 });
-
-  return (
-    <span
-      ref={ref}
-      className={className}
-      style={{ display: "block", overflow: "hidden" }}
-    >
-      <motion.span
-        style={{ display: "block" }}
-        initial={{ y: "105%" }}
-        animate={inView ? { y: "0%" } : { y: "105%" }}
-        transition={{ duration: 1, delay, ease: [0.22, 1, 0.36, 1] }}
-      >
-        {text}
-      </motion.span>
-    </span>
-  );
-}
+const ease = [0.22, 1, 0.36, 1] as const;
 
 export default function Hero({ started }: { started: boolean }) {
-  const ref = useRef(null);
-
   return (
-    <section className="hero-section" ref={ref}>
-      {/* Top nav bar */}
+    <section className="hero-section">
+      {/* ── Nav ─────────────────────────────────────────────── */}
       <motion.nav
-        initial={{ opacity: 0, y: -16 }}
-        animate={started ? { opacity: 1, y: 0 } : {}}
-        transition={{ duration: 0.7, delay: 0.1 }}
-        style={{
-          position: "absolute",
-          top: "2rem",
-          left: "2.5rem",
-          right: "2.5rem",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "space-between",
-        }}
+        className="hero-nav"
+        initial={{ opacity: 0 }}
+        animate={started ? { opacity: 1 } : {}}
+        transition={{ duration: 1, delay: 0.1 }}
       >
-        <span
-          style={{
-            fontSize: "0.65rem",
-            letterSpacing: "0.3em",
-            textTransform: "uppercase",
-            color: "#6a6a7a",
-          }}
-        >
-          Gabriel Glatz — 2026
-        </span>
-        <div style={{ display: "flex", gap: "2.5rem" }}>
-          {["Sobre", "Skills", "Projetos", "Contato"].map((item) => (
-            <a
+        <span className="hero-nav__brand">GG</span>
+        <div className="hero-nav__links">
+          {NAV.map((item, i) => (
+            <motion.a
               key={item}
               href={`#${item.toLowerCase()}`}
-              style={{
-                fontSize: "0.65rem",
-                letterSpacing: "0.25em",
-                textTransform: "uppercase",
-                color: "#6a6a7a",
-                textDecoration: "none",
-                transition: "color 0.2s",
-              }}
-              onMouseEnter={(e) => (e.currentTarget.style.color = "var(--fg)")}
-              onMouseLeave={(e) => (e.currentTarget.style.color = "#666")}
+              className="hero-nav__link"
+              initial={{ opacity: 0, y: -6 }}
+              animate={started ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.5, delay: 0.15 + i * 0.07, ease }}
             >
               {item}
-            </a>
+            </motion.a>
           ))}
         </div>
       </motion.nav>
 
-      {/* Eyebrow */}
-      <motion.p
-        className="hero-eyebrow"
-        initial={{ opacity: 0, y: 12 }}
-        animate={started ? { opacity: 1, y: 0 } : {}}
-        transition={{ duration: 0.6, delay: 0.25 }}
-      >
-        Jaraguá do Sul, SC — Disponível para novos projetos
-      </motion.p>
+      {/* ── Main grid ───────────────────────────────────────── */}
+      <div className="hero-main">
+        {/* Left col */}
+        <div className="hero-left">
+          {/* Role tag */}
+          <motion.div
+            className="hero-role-tag"
+            initial={{ opacity: 0 }}
+            animate={started ? { opacity: 1 } : {}}
+            transition={{ duration: 0.6, delay: 0.18 }}
+          >
+            <span className="hero-role-dot" />
+            Software Developer
+          </motion.div>
 
-      {/* Main headline */}
-      <h1 className="hero-headline">
-        <SplitWords text="Gabriel" delay={started ? 0.35 : 99} />
-        <SplitWords
-          text="Glatz"
-          className="spaced"
-          delay={started ? 0.5 : 99}
-        />
-      </h1>
+          {/* Name */}
+          <h1 className="hero-headline">
+            <div style={{ overflow: "hidden" }}>
+              <motion.span
+                className="hero-name-first"
+                initial={{ y: "110%", opacity: 0 }}
+                animate={started ? { y: "0%", opacity: 1 } : {}}
+                transition={{ duration: 0.7, delay: 0.25, ease }}
+                style={{ display: "block" }}
+              >
+                Gabriel
+              </motion.span>
+            </div>
+            <div style={{ overflow: "hidden" }}>
+              <motion.span
+                className="hero-name-last"
+                initial={{ y: "108%", filter: "blur(12px)" }}
+                animate={started ? { y: "0%", filter: "blur(0px)" } : {}}
+                transition={{ duration: 1.0, delay: 0.38, ease: [0.16, 1, 0.3, 1] }}
+                style={{ display: "block" }}
+              >
+                Glatz
+              </motion.span>
+            </div>
+          </h1>
 
-      {/* Bottom row */}
-      <div className="hero-bottom">
-        <motion.p
-          className="hero-desc"
-          initial={{ opacity: 0, y: 16 }}
-          animate={started ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8, delay: 0.75 }}
-        >
-          Desenvolvedor de Software especializado em criar experiências web
-          modernas. React · TypeScript · Node.js — do design ao deploy.
-        </motion.p>
-
-        <motion.div
-          initial={{ opacity: 0, y: 16 }}
-          animate={started ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8, delay: 0.9 }}
-        >
-          <a href="#contato" className="hero-cta">
-            <span>Vamos conversar</span>
-            <svg
-              width="14"
-              height="14"
-              viewBox="0 0 14 14"
-              fill="none"
-              aria-hidden
-            >
-              <path
-                d="M1 13L13 1M13 1H5M13 1V9"
-                stroke="currentColor"
-                strokeWidth="1.5"
-                strokeLinecap="round"
-                strokeLinejoin="round"
+          {/* Stripe bar */}
+          <div className="hero-stripes">
+            {STRIPES.map((color, i) => (
+              <motion.span
+                key={color}
+                className="hero-stripe"
+                style={{ background: color }}
+                initial={{ scaleX: 0 }}
+                animate={started ? { scaleX: 1 } : {}}
+                transition={{ duration: 0.5, delay: 0.62 + i * 0.07, ease }}
               />
-            </svg>
-          </a>
-        </motion.div>
+            ))}
+          </div>
+
+          {/* Desc */}
+          <motion.p
+            className="hero-desc"
+            initial={{ opacity: 0, y: 8 }}
+            animate={started ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.7, delay: 0.82, ease }}
+          >
+            Interfaces modernas do design ao deploy —{" "}
+            <span style={{ color: "var(--fg)", opacity: 0.6 }}>
+              React · TypeScript · Node.js
+            </span>
+          </motion.p>
+        </div>
+
+        {/* Right col */}
+        <div className="hero-right">
+          {/* Available badge */}
+          <motion.div
+            className="hero-available"
+            initial={{ opacity: 0 }}
+            animate={started ? { opacity: 1 } : {}}
+            transition={{ duration: 0.6, delay: 0.7 }}
+          >
+            <span className="hero-available__dot" />
+            Disponível
+          </motion.div>
+
+          {/* CTA */}
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            animate={started ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.7, delay: 0.85, ease }}
+          >
+            <a href="#contato" className="hero-cta">
+              <span>Vamos conversar</span>
+              <svg
+                width="13"
+                height="13"
+                viewBox="0 0 14 14"
+                fill="none"
+                aria-hidden
+              >
+                <path
+                  d="M1 13L13 1M13 1H5M13 1V9"
+                  stroke="currentColor"
+                  strokeWidth="1.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+            </a>
+          </motion.div>
+        </div>
       </div>
 
-      {/* Marquee strip */}
+      {/* ── Marquee ─────────────────────────────────────────── */}
       <motion.div
         className="marquee-wrap"
-        style={{
-          marginTop: "4rem",
-          marginLeft: "-2.5rem",
-          marginRight: "-2.5rem",
-        }}
         initial={{ opacity: 0 }}
         animate={started ? { opacity: 1 } : {}}
-        transition={{ duration: 0.6, delay: 1 }}
+        transition={{ duration: 0.8, delay: 1.0 }}
       >
         <div className="marquee-track">
-          {SKILLS_MARQUEE.map((skill, i) => (
+          {MARQUEE.map((skill, i) => (
             <span key={i} className="marquee-item">
               {skill}
               <span className="marquee-dot" />
