@@ -2,15 +2,14 @@
 
 import { useState } from "react";
 import LoadingScreen from "@/components/LoadingScreen";
-import HeroSection from "@/components/HeroSection";
 import CustomCursor from "@/components/CustomCursor";
-import AboutSection from "@/components/AboutSection";
-import ProjectsSection from "@/components/ProjectsSection";
-import SkillsSection from "@/components/SkillsSection";
-import ExperienceSection from "@/components/ExperienceSection";
-import ContactSection from "@/components/ContactSection";
-import Footer from "@/components/Footer";
-
+import Hero from "@/features/hero/Hero";
+import About from "@/features/about/About";
+import Projects from "@/features/projects/Projects";
+import Skills from "@/features/skills/Skills";
+import Experience from "@/features/experience/Experience";
+import Contact from "@/features/contact/Contact";
+import Footer from "@/features/footer/Footer";
 
 export default function Home() {
   const [loaded, setLoaded] = useState(false);
@@ -19,13 +18,18 @@ export default function Home() {
     <>
       <CustomCursor />
       <LoadingScreen onComplete={() => setLoaded(true)} />
-      <main style={{ opacity: loaded ? 1 : 0, transition: "opacity 0.5s ease 0.1s" }}>
-        <HeroSection started={loaded} />
-        <AboutSection />
-        <ProjectsSection />
-        <SkillsSection />
-        <ExperienceSection />
-        <ContactSection />
+      <main
+        style={{
+          opacity: loaded ? 1 : 0,
+          transition: "opacity 0.5s ease 0.1s",
+        }}
+      >
+        <Hero started={loaded} />
+        <About />
+        <Projects />
+        <Skills />
+        <Experience />
+        <Contact />
         <Footer />
       </main>
     </>

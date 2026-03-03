@@ -81,7 +81,7 @@ function FadeIn({
   );
 }
 
-export default function AboutSection() {
+export default function About() {
   const sectionRef = useRef(null);
   const { scrollYProgress } = useScroll({
     target: sectionRef,
@@ -102,9 +102,7 @@ export default function AboutSection() {
         {/* Left col — text */}
         <div className="about-text-col">
           <RevealLine>
-            <h2 className="about-heading">
-              Dev que entrega
-            </h2>
+            <h2 className="about-heading">Dev que entrega</h2>
           </RevealLine>
           <RevealLine delay={0.08}>
             <h2 className="about-heading about-heading--accent">
@@ -112,17 +110,15 @@ export default function AboutSection() {
             </h2>
           </RevealLine>
           <RevealLine delay={0.16}>
-            <h2 className="about-heading about-heading--outline">
-              reais.
-            </h2>
+            <h2 className="about-heading about-heading--outline">reais.</h2>
           </RevealLine>
 
           <FadeIn delay={0.3}>
             <p className="about-desc">
-              Sou um desenvolvedor de software especializado em criar
-              aplicações web modernas e responsivas. Com experiência em React,
-              TypeScript e Node.js, foco em entregar soluções que combinam
-              funcionalidade excepcional com experiências intuitivas.
+              Sou um desenvolvedor de software especializado em criar aplicações
+              web modernas e responsivas. Com experiência em React, TypeScript e
+              Node.js, foco em entregar soluções que combinam funcionalidade
+              excepcional com experiências intuitivas.
             </p>
           </FadeIn>
 

@@ -88,7 +88,14 @@ export default function Footer() {
             {
               href: "#contato",
               icon: (
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <svg
+                  width="14"
+                  height="14"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                >
                   <path d="M12 21C12 21 5 13.5 5 8.5a7 7 0 0114 0C19 13.5 12 21 12 21z" />
                   <circle cx="12" cy="8.5" r="2.5" />
                 </svg>
@@ -99,7 +106,14 @@ export default function Footer() {
             {
               href: SOCIAL[0].href,
               icon: (
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <svg
+                  width="14"
+                  height="14"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                >
                   <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22" />
                 </svg>
               ),
@@ -109,7 +123,14 @@ export default function Footer() {
             {
               href: SOCIAL[1].href,
               icon: (
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <svg
+                  width="14"
+                  height="14"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                >
                   <path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z" />
                   <rect x="2" y="9" width="4" height="12" />
                   <circle cx="4" cy="4" r="2" />
@@ -122,7 +143,9 @@ export default function Footer() {
             <motion.a
               key={item.label}
               href={item.href}
-              {...(item.external ? { target: "_blank", rel: "noreferrer" } : {})}
+              {...(item.external
+                ? { target: "_blank", rel: "noreferrer" }
+                : {})}
               className="footer-contact-box"
               variants={boxVariants}
               custom={i}
@@ -142,14 +165,28 @@ export default function Footer() {
             animate={isInView ? "visible" : "hidden"}
           >
             <span className="footer-contact-icon">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <svg
+                width="14"
+                height="14"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+              >
                 <rect x="2" y="4" width="20" height="16" rx="2" />
                 <path d="M2 7l10 7 10-7" />
               </svg>
             </span>
             <span className="footer-contact-label">{EMAIL}</span>
             <button className="footer-copy-btn" onClick={copyEmail}>
-              <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <svg
+                width="11"
+                height="11"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+              >
                 <rect x="9" y="9" width="13" height="13" rx="2" />
                 <path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1" />
               </svg>
@@ -167,10 +204,15 @@ export default function Footer() {
         >
           <svg className="footer-badge-ring" viewBox="0 0 100 100">
             <defs>
-              <path id="badge-circle" d="M 50,50 m -37,0 a 37,37 0 1,1 74,0 a 37,37 0 1,1 -74,0" />
+              <path
+                id="badge-circle"
+                d="M 50,50 m -37,0 a 37,37 0 1,1 74,0 a 37,37 0 1,1 -74,0"
+              />
             </defs>
             <text fontSize="10" fill="var(--bg)" letterSpacing="3">
-              <textPath href="#badge-circle">GABRIEL GLATZ  DEV  PORTFOLIO </textPath>
+              <textPath href="#badge-circle">
+                GABRIEL GLATZ DEV PORTFOLIO{" "}
+              </textPath>
             </text>
           </svg>
           <span className="footer-badge-center">GG</span>
@@ -240,7 +282,13 @@ export default function Footer() {
       >
         <div className="footer-bar-social">
           {SOCIAL.map((s) => (
-            <a key={s.label} href={s.href} target="_blank" rel="noreferrer" className="footer-bar-link">
+            <a
+              key={s.label}
+              href={s.href}
+              target="_blank"
+              rel="noreferrer"
+              className="footer-bar-link"
+            >
               {s.label}
             </a>
           ))}
@@ -252,7 +300,9 @@ export default function Footer() {
             </a>
           ))}
         </nav>
-        <p className="footer-bar-copy">Gabriel Glatz  2026 &mdash; Software Developer</p>
+        <p className="footer-bar-copy">
+          Gabriel Glatz 2026 &mdash; Software Developer
+        </p>
       </motion.div>
     </footer>
   );

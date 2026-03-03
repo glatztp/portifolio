@@ -112,7 +112,7 @@ function SkillBar({
   );
 }
 
-export default function SkillsSection() {
+export default function Skills() {
   return (
     <section id="skills" className="skills-section">
       {/* Label */}

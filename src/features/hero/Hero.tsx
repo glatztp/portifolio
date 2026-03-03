@@ -52,7 +52,7 @@ function SplitWords({
   );
 }
 
-export default function HeroSection({ started }: { started: boolean }) {
+export default function Hero({ started }: { started: boolean }) {
   const ref = useRef(null);
 
   return (
@@ -160,7 +160,6 @@ export default function HeroSection({ started }: { started: boolean }) {
             </svg>
           </a>
         </motion.div>
-
       </div>
 
       {/* Marquee strip */}

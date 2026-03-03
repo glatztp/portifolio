@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef } from "react";
-import { motion, useInView} from "framer-motion";
+import { motion, useInView } from "framer-motion";
 
 const JOBS = [
   {
@@ -92,7 +92,11 @@ function TimelineItem({
         className="timeline-dot"
         initial={{ scale: 0, opacity: 0 }}
         animate={inView ? { scale: 1, opacity: 1 } : {}}
-        transition={{ duration: 0.4, delay: index * 0.08, ease: [0.22, 1, 0.36, 1] }}
+        transition={{
+          duration: 0.4,
+          delay: index * 0.08,
+          ease: [0.22, 1, 0.36, 1],
+        }}
       />
 
       {/* Content */}
@@ -100,7 +104,11 @@ function TimelineItem({
         className="timeline-content"
         initial={{ opacity: 0, x: -24 }}
         animate={inView ? { opacity: 1, x: 0 } : {}}
-        transition={{ duration: 0.8, delay: index * 0.08 + 0.1, ease: [0.22, 1, 0.36, 1] }}
+        transition={{
+          duration: 0.8,
+          delay: index * 0.08 + 0.1,
+          ease: [0.22, 1, 0.36, 1],
+        }}
       >
         <div className="timeline-meta">
           <span className="timeline-period">{item.period}</span>
@@ -124,7 +132,13 @@ function TimelineItem({
   );
 }
 
-function RevealLine({ children, delay = 0 }: { children: React.ReactNode; delay?: number }) {
+function RevealLine({
+  children,
+  delay = 0,
+}: {
+  children: React.ReactNode;
+  delay?: number;
+}) {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-80px" });
   return (
@@ -140,7 +154,7 @@ function RevealLine({ children, delay = 0 }: { children: React.ReactNode; delay?
   );
 }
 
-export default function ExperienceSection() {
+export default function Experience() {
   return (
     <section id="experiencia" className="experience-section">
       <div className="section-label">
@@ -153,7 +167,9 @@ export default function ExperienceSection() {
           <h2 className="experience-heading">Jornada</h2>
         </RevealLine>
         <RevealLine delay={0.1}>
-          <h2 className="experience-heading experience-heading--accent">Profissional</h2>
+          <h2 className="experience-heading experience-heading--accent">
+            Profissional
+          </h2>
         </RevealLine>
       </div>
 
@@ -171,7 +187,12 @@ export default function ExperienceSection() {
           </motion.p>
           <div className="timeline">
             {JOBS.map((job, i) => (
-              <TimelineItem key={job.title + job.period} item={job} index={i} isLast={i === JOBS.length - 1} />
+              <TimelineItem
+                key={job.title + job.period}
+                item={job}
+                index={i}
+                isLast={i === JOBS.length - 1}
+              />
             ))}
           </div>
         </div>
@@ -189,7 +210,12 @@ export default function ExperienceSection() {
           </motion.p>
           <div className="timeline">
             {EDUCATION.map((edu, i) => (
-              <TimelineItem key={edu.title} item={edu} index={i} isLast={true} />
+              <TimelineItem
+                key={edu.title}
+                item={edu}
+                index={i}
+                isLast={true}
+              />
             ))}
           </div>
 
@@ -201,12 +227,21 @@ export default function ExperienceSection() {
             viewport={{ once: true, margin: "-60px" }}
             transition={{ duration: 0.8, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
           >
-            <div className="timeline-dot" style={{ position: "relative", transform: "none", top: "auto", left: "auto", marginBottom: "1rem" }} />
+            <div
+              className="timeline-dot"
+              style={{
+                position: "relative",
+                transform: "none",
+                top: "auto",
+                left: "auto",
+                marginBottom: "1rem",
+              }}
+            />
             <p className="learning-card__title">Aprendizado Contínuo</p>
             <p className="learning-card__desc">
               Sempre expandindo conhecimentos através de cursos, certificações e
-              projetos práticos. Atualmente focando em padrões avançados do React,
-              cloud e práticas modernas de desenvolvimento.
+              projetos práticos. Atualmente focando em padrões avançados do
+              React, cloud e práticas modernas de desenvolvimento.
             </p>
           </motion.div>
         </div>

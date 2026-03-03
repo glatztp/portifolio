@@ -36,7 +36,7 @@ const FIELDS = [
   },
 ];
 
-export default function ContactSection() {
+export default function Contact() {
   const [focused, setFocused] = useState<string | null>(null);
   const [sent, setSent] = useState(false);
   const formRef = useRef<HTMLFormElement>(null);

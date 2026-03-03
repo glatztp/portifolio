@@ -73,17 +73,14 @@ function RevealLine({
   );
 }
 
-export default function ProjectsSection() {
+export default function Projects() {
   const containerRef = useRef<HTMLDivElement>(null);
 
-  // sticky horizontal scroll
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ["start start", "end end"],
   });
 
-  // translate from 0 to -(total width - viewport). Each card ~420px + gap.
-  // 5 cards: translate to roughly -(5-1) * 460px = -1840px adjusted by vw
   const x = useTransform(
     scrollYProgress,
     [0, 1],
@@ -164,7 +161,6 @@ function ProjectCard({
   scrollYProgress: ReturnType<typeof useScroll>["scrollYProgress"];
   total: number;
 }) {
-  // each card fades in as its segment becomes active
   const start = index / total;
   const end = (index + 1) / total;
   const opacity = useTransform(
