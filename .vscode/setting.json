@@ -1,0 +1,29 @@
+{
+  "eslint.run": "onType",
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnSave": true,
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "always",
+    "source.organizeImports": "always",
+    "source.addMissingImports.ts": "always",
+    "source.fixAll.ts": "always"
+  },
+  "editor.fontLigatures": true,
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "[prisma]": {
+    "editor.defaultFormatter": "Prisma.prisma"
+  },
+  "editor.insertSpaces": true,
+  "editor.tabSize": 2,
+  "github.copilot.enable": {
+    "*": true,
+    "dotenv": false
+  }
+}
