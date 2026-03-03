@@ -9,7 +9,7 @@ const PROJECTS = [
     title: "Portfolio",
     sub: "Este Site",
     tech: ["Next.js", "TypeScript", "Framer Motion", "Tailwind CSS"],
-    desc: "Portfólio pessoal com animações de scroll, loading screen e design inspirado nos melhores sites do Awwwards.",
+    desc: "PortfÃ³lio pessoal com animaÃ§Ãµes de scroll, loading screen e design inspirado nos melhores sites do Awwwards.",
     year: "2026",
     link: "#",
   },
@@ -18,7 +18,7 @@ const PROJECTS = [
     title: "E-Commerce",
     sub: "Loja Online",
     tech: ["React", "Node.js", "SQL", "REST API"],
-    desc: "Plataforma de e-commerce completa com painel admin, carrinho, checkout e integração com pagamentos.",
+    desc: "Plataforma de e-commerce completa com painel admin, carrinho, checkout e integraÃ§Ã£o com pagamentos.",
     year: "2025",
     link: "#",
   },
@@ -27,7 +27,7 @@ const PROJECTS = [
     title: "Dashboard",
     sub: "Analytics",
     tech: ["React", "TypeScript", "Recharts", "Node.js"],
-    desc: "Dashboard de analytics com gráficos interativos, relatórios em tempo real e exportação de dados.",
+    desc: "Dashboard de analytics com grÃ¡ficos interativos, relatÃ³rios em tempo real e exportaÃ§Ã£o de dados.",
     year: "2025",
     link: "#",
   },
@@ -36,7 +36,7 @@ const PROJECTS = [
     title: "Landing Page",
     sub: "Produto SaaS",
     tech: ["Next.js", "Tailwind CSS", "Framer Motion"],
-    desc: "Landing page de alta conversão para produto SaaS com animações, depoimentos e CTA estratégico.",
+    desc: "Landing page de alta conversÃ£o para produto SaaS com animaÃ§Ãµes, depoimentos e CTA estratÃ©gico.",
     year: "2024",
     link: "#",
   },
@@ -45,7 +45,7 @@ const PROJECTS = [
     title: "App Mobile",
     sub: "React Native",
     tech: ["React Native", "Expo", "Firebase"],
-    desc: "Aplicativo mobile de gerenciamento de tarefas com sincronização em tempo real e notificações push.",
+    desc: "Aplicativo mobile de gerenciamento de tarefas com sincronizaÃ§Ã£o em tempo real e notificaÃ§Ãµes push.",
     year: "2024",
     link: "#",
   },
@@ -92,7 +92,6 @@ export default function Projects() {
 
   return (
     <section id="projetos" className="projects-section">
-      {/* Section header — normal flow, above sticky */}
       <div className="projects-header" ref={titleRef}>
         <div className="section-label">
           <span className="section-label__num">03</span>
@@ -114,25 +113,20 @@ export default function Projects() {
           animate={titleInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
         >
-          Role para explorar →
+          Role para explorar â†’
         </motion.p>
       </div>
-
-      {/* Horizontal scroll container */}
       <div
         ref={containerRef}
         style={{ height: `${PROJECTS.length * 100}vh` }}
         className="projects-scroll-container"
       >
         <div className="projects-sticky">
-          {/* Side label rotated */}
           <div className="projects-side-label">
             {Array.from({ length: 6 }).map((_, i) => (
               <span key={i}>WORK&nbsp;&nbsp;</span>
             ))}
           </div>
-
-          {/* Cards track */}
           <motion.div className="projects-track" style={{ x }}>
             {PROJECTS.map((p, i) => (
               <ProjectCard
@@ -176,13 +170,10 @@ function ProjectCard({
 
   return (
     <motion.article className="project-card" style={{ opacity, scale }}>
-      {/* Card top */}
       <div className="project-card__top">
         <span className="project-card__num">{project.num}</span>
         <span className="project-card__year">{project.year}</span>
       </div>
-
-      {/* Image placeholder */}
       <div className="project-card__img">
         <div className="project-card__img-inner">
           <span>{project.num}</span>
@@ -200,8 +191,6 @@ function ProjectCard({
           </svg>
         </a>
       </div>
-
-      {/* Card info */}
       <div className="project-card__info">
         <div>
           <p className="project-card__sub">{project.sub}</p>

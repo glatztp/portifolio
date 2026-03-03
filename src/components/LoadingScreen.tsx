@@ -40,7 +40,6 @@ export default function LoadingScreen({
           exit={{ y: "-102%" }}
           transition={{ duration: 1.1, ease: [0.76, 0, 0.24, 1] }}
         >
-          {/* Label */}
           <motion.span
             className="loader-label"
             initial={{ opacity: 0 }}
@@ -49,8 +48,6 @@ export default function LoadingScreen({
           >
             loading
           </motion.span>
-
-          {/* Counter */}
           <motion.div
             className="loader-counter"
             initial={{ opacity: 0, y: 16 }}
@@ -62,8 +59,6 @@ export default function LoadingScreen({
             </span>
             <span className="loader-counter__pct">%</span>
           </motion.div>
-
-          {/* Stripe bars */}
           <motion.div
             className="loader-stripes"
             initial={{ opacity: 0 }}
@@ -83,8 +78,6 @@ export default function LoadingScreen({
               </div>
             ))}
           </motion.div>
-
-          {/* Bottom progress bar */}
           <div
             className="loader-bar"
             style={{ width: `${count}%`, transition: "width 0.08s linear" }}

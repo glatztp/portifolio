@@ -8,9 +8,9 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Gabriel Glatz — Software Developer",
+  title: "Gabriel Glatz â€” Software Developer",
   description:
-    "Desenvolvedor de Software especializado em criar experiências web modernas com React, TypeScript e Node.js.",
+    "Desenvolvedor de Software especializado em criar experiÃªncias web modernas com React, TypeScript e Node.js.",
 };
 
 export default function RootLayout({
@@ -21,7 +21,6 @@ export default function RootLayout({
   return (
     <html lang="pt-BR">
       <body className={inter.className}>
-        {/* Grain texture overlay */}
         <div className="grain-overlay" aria-hidden="true" />
         {children}
       </body>

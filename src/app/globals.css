@@ -1,8 +1,5 @@
 @import "tailwindcss";
 
-/* ————————————————————————————
-   CSS CUSTOM PROPERTIES
-   —————————————————————————— */
 :root {
   --bg: #252530;
   --fg: #ede8dc;
@@ -11,9 +8,6 @@
   --grain-opacity: 0.07;
 }
 
-/* ————————————————————————————
-   RESET & BASE
-   —————————————————————————— */
 *,
 *::before,
 *::after {
@@ -41,9 +35,6 @@ body {
   cursor: none;
 }
 
-/* ————————————————————————————
-   GRAIN TEXTURE (SVG filter)
-   —————————————————————————— */
 .grain-overlay {
   pointer-events: none;
   position: fixed;
@@ -93,9 +84,6 @@ body {
   }
 }
 
-/* ————————————————————————————
-   CUSTOM CURSOR
-   —————————————————————————— */
 .cursor-dot {
   position: fixed;
   width: 8px;
@@ -126,9 +114,6 @@ body {
     height 0.25s;
 }
 
-/* ————————————————————————————
-   LOADING SCREEN
-   —————————————————————————— */
 .loader-wrap {
   position: fixed;
   inset: 0;
@@ -202,9 +187,6 @@ body {
   transform-origin: left;
 }
 
-/* ————————————————————————————
-   HERO
-   —————————————————————————— */
 .hero-section {
   position: relative;
   min-height: 100vh;
@@ -247,25 +229,6 @@ body {
   z-index: 0;
 }
 
-/* ── Decorative geometric shape ── */
-.hero-deco {
-  position: absolute;
-  right: -12%;
-  top: 50%;
-  transform: translateY(-50%);
-  width: clamp(300px, 42vw, 560px);
-  aspect-ratio: 1;
-  pointer-events: none;
-  z-index: 1;
-  opacity: 0.9;
-}
-
-.hero-deco svg {
-  width: 100%;
-  height: 100%;
-}
-
-/* ── Image trail ── */
 .hero-trail {
   position: absolute;
   inset: 0;
@@ -274,7 +237,6 @@ body {
   pointer-events: none;
 }
 
-/* re-enable mouse tracking on the section, not the trail overlay */
 .hero-section:hover .hero-trail {
   pointer-events: auto;
 }
@@ -302,7 +264,6 @@ body {
   left: -10px;
 }
 
-/* ── Content layer (above trail) ── */
 .hero-content-layer {
   position: relative;
   z-index: 10;
@@ -312,7 +273,6 @@ body {
   pointer-events: auto;
 }
 
-/* ── Nav ── */
 .hero-nav {
   position: absolute;
   top: 2.5rem;
@@ -356,7 +316,6 @@ body {
   color: var(--fg);
 }
 
-/* ── Main grid ── */
 .hero-main {
   display: flex;
   align-items: flex-end;
@@ -382,7 +341,6 @@ body {
   flex-shrink: 0;
 }
 
-/* ── Role tag ── */
 .hero-role-tag {
   display: inline-flex;
   align-items: center;
@@ -405,11 +363,15 @@ body {
 }
 
 @keyframes pulse-role {
-  0%, 100% { box-shadow: 0 0 0 0 rgba(160, 126, 212, 0.45); }
-  50%       { box-shadow: 0 0 0 4px rgba(160, 126, 212, 0); }
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(160, 126, 212, 0.45);
+  }
+  50% {
+    box-shadow: 0 0 0 4px rgba(160, 126, 212, 0);
+  }
 }
 
-/* ── Headline ── */
 .hero-headline {
   margin: 0 0 1.75rem;
   line-height: 1;
@@ -436,7 +398,6 @@ body {
     0 0 80px rgba(237, 232, 220, 0.035);
 }
 
-/* ── Stripe bar ── */
 .hero-stripes {
   display: flex;
   gap: 4px;
@@ -463,7 +424,6 @@ body {
   box-shadow: 0 0 10px rgba(61, 79, 196, 0.65);
 }
 
-/* ── Desc ── */
 .hero-desc {
   max-width: 320px;
   font-size: clamp(0.78rem, 1.1vw, 0.9rem);
@@ -472,7 +432,6 @@ body {
   letter-spacing: 0.02em;
 }
 
-/* ── Scroll hint ── */
 .hero-scroll {
   display: flex;
   flex-direction: column;
@@ -534,7 +493,6 @@ body {
   }
 }
 
-/* ── CTA ── */
 .hero-cta {
   display: inline-flex;
   align-items: center;
@@ -547,7 +505,9 @@ body {
   padding: 0.9rem 1.6rem;
   position: relative;
   overflow: hidden;
-  transition: color 0.3s, box-shadow 0.35s;
+  transition:
+    color 0.3s,
+    box-shadow 0.35s;
   text-decoration: none;
   font-weight: 500;
   box-shadow: inset 0 0 0 0 transparent;
@@ -577,9 +537,6 @@ body {
   transform: scaleX(1);
 }
 
-/* ————————————————————————————
-   MARQUEE
-   —————————————————————————— */
 .marquee-wrap {
   overflow: hidden;
   border-top: 1px solid var(--muted);
@@ -628,9 +585,6 @@ body {
   flex-shrink: 0;
 }
 
-/* ————————————————————————————
-   SCROLLBAR
-   —————————————————————————— */
 ::-webkit-scrollbar {
   width: 3px;
 }
@@ -641,9 +595,6 @@ body {
   background: var(--muted);
 }
 
-/* ————————————————————————————
-   SHARED SECTION UTILITIES
-   —————————————————————————— */
 .section-label {
   display: flex;
   align-items: center;
@@ -670,9 +621,6 @@ body {
   background: var(--muted);
 }
 
-/* ————————————————————————————
-   ABOUT SECTION
-   —————————————————————————— */
 .about-section {
   padding: 7rem 2.5rem;
   border-top: 1px solid var(--muted);
@@ -894,9 +842,6 @@ body {
   color: #6a6a7a;
 }
 
-/* ————————————————————————————
-   PROJECTS SECTION (HORIZONTAL STICKY)
-   —————————————————————————— */
 .projects-section {
   border-top: 1px solid var(--muted);
 }
@@ -1076,9 +1021,6 @@ body {
   padding: 0.3rem 0.7rem;
 }
 
-/* ————————————————————————————
-   SKILLS SECTION
-   —————————————————————————— */
 .skills-section {
   padding: 7rem 2.5rem;
   border-top: 1px solid var(--muted);
@@ -1176,9 +1118,6 @@ body {
   transform-origin: left;
 }
 
-/* ————————————————————————————
-   EXPERIENCE SECTION
-   —————————————————————————— */
 .experience-section {
   padding: 7rem 2.5rem;
   border-top: 1px solid var(--muted);
@@ -1338,9 +1277,6 @@ body {
   color: #6a6a7a;
 }
 
-/* ————————————————————————————
-   CONTACT SECTION
-   —————————————————————————— */
 .contact-section {
   padding: 7rem 2.5rem;
   border-top: 1px solid var(--muted);
@@ -1508,7 +1444,7 @@ body {
 }
 
 .contact-field__line {
-  display: none; /* handled by border */
+  display: none; 
 }
 
 .contact-submit {
@@ -1561,16 +1497,12 @@ body {
   font-size: 1.2rem;
 }
 
-/* ————————————————————————————
-   FOOTER
-   —————————————————————————— */
 .site-footer {
   padding: 2.5rem 2.5rem 0;
   position: relative;
   overflow: hidden;
 }
 
-/* animated top line — replaces static border-top */
 .footer-topline {
   display: block;
   position: absolute;
@@ -1582,7 +1514,6 @@ body {
   transform-origin: left;
 }
 
-/* Top row */
 .footer-top {
   display: flex;
   align-items: flex-start;
@@ -1657,7 +1588,6 @@ body {
   color: var(--accent);
 }
 
-/* Spinning badge */
 .footer-badge {
   position: relative;
   width: 105px;
@@ -1688,7 +1618,6 @@ body {
   z-index: 1;
 }
 
-/* Big name hero */
 .footer-hero {
   margin: 0 -2.5rem;
   padding: 2rem 2.5rem 0;
@@ -1708,7 +1637,7 @@ body {
   gap: 0;
   flex-shrink: 0;
 }
-/* letter containers — clip overflow for slide-up */
+
 .footer-name-letters {
   display: flex;
   flex-shrink: 0;
@@ -1736,7 +1665,7 @@ body {
   width: 100%;
   border-radius: 4px;
 }
-/* GABRIEL — row 1 */
+
 .footer-bigname {
   display: inline-block;
   font-size: clamp(3.5rem, 13vw, 14rem);
@@ -1748,7 +1677,7 @@ body {
   white-space: nowrap;
   user-select: none;
 }
-/* GLATZ — row 2, scaled via JS to fill full width */
+
 .footer-bigname--wide {
   font-size: clamp(2.5rem, 7.5vw, 8rem);
   line-height: 0.88;
@@ -1759,7 +1688,6 @@ body {
   }
 }
 
-/* Bottom bar */
 .footer-bar {
   display: flex;
   align-items: center;

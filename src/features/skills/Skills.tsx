@@ -115,13 +115,10 @@ function SkillBar({
 export default function Skills() {
   return (
     <section id="skills" className="skills-section">
-      {/* Label */}
       <div className="section-label">
         <span className="section-label__num">04</span>
         <span className="section-label__text">Habilidades</span>
       </div>
-
-      {/* Heading */}
       <div className="skills-heading-wrap">
         <RevealLine>
           <h2 className="skills-heading">Stack &</h2>
@@ -130,8 +127,6 @@ export default function Skills() {
           <h2 className="skills-heading skills-heading--accent">Tecnologias</h2>
         </RevealLine>
       </div>
-
-      {/* Tech bubbles */}
       <div className="skills-bubbles">
         {TECH_LIST.map((t, i) => (
           <motion.span
@@ -151,8 +146,6 @@ export default function Skills() {
           </motion.span>
         ))}
       </div>
-
-      {/* Category bars */}
       <div className="skills-categories">
         {CATEGORIES.map((cat, ci) => (
           <motion.div

@@ -31,7 +31,7 @@ const FIELDS = [
   {
     id: "subject",
     label: "Assunto",
-    placeholder: "Discussão do projeto",
+    placeholder: "DiscussÃ£o do projeto",
     type: "text",
   },
 ];
@@ -66,7 +66,6 @@ export default function Contact() {
       </div>
 
       <div className="contact-grid">
-        {/* Left — info */}
         <motion.div
           className="contact-info"
           initial={{ opacity: 0, x: -24 }}
@@ -76,32 +75,17 @@ export default function Contact() {
         >
           <p className="contact-info__desc">
             Tem um projeto em mente? Adoraria saber sobre ele. Vamos criar algo
-            incrível juntos. Normalmente respondo em até 24 horas.
+            incrÃ­vel juntos. Normalmente respondo em atÃ© 24 horas.
           </p>
 
           <div className="contact-links">
-            <a href="mailto:gabriel@email.com" className="contact-link">
-              <span className="contact-link__label">Email</span>
-              <span className="contact-link__value">gabriel@email.com</span>
-              <svg width="12" height="12" viewBox="0 0 14 14" fill="none">
-                <path
-                  d="M1 13L13 1M13 1H5M13 1V9"
-                  stroke="currentColor"
-                  strokeWidth="1.5"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              </svg>
-            </a>
             <a
-              href="https://github.com/gabrielglatz"
-              target="_blank"
-              rel="noreferrer"
+              href="mailto:gabrielfellipeglatz@gmail.com"
               className="contact-link"
             >
-              <span className="contact-link__label">GitHub</span>
+              <span className="contact-link__label">Email</span>
               <span className="contact-link__value">
-                github.com/gabrielglatz
+                gabrielfellipeglatz@gmail.com
               </span>
               <svg width="12" height="12" viewBox="0 0 14 14" fill="none">
                 <path
@@ -114,15 +98,51 @@ export default function Contact() {
               </svg>
             </a>
             <a
-              href="https://linkedin.com/in/gabrielglatz"
+              href="https://github.com/glatztp"
+              target="_blank"
+              rel="noreferrer"
+              className="contact-link"
+            >
+              <span className="contact-link__label">GitHub</span>
+              <span className="contact-link__value">github.com/glatztp</span>
+              <svg width="12" height="12" viewBox="0 0 14 14" fill="none">
+                <path
+                  d="M1 13L13 1M13 1H5M13 1V9"
+                  stroke="currentColor"
+                  strokeWidth="1.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+            </a>
+            <a
+              href="https://linkedin.com/in/gabriel-glatz"
               target="_blank"
               rel="noreferrer"
               className="contact-link"
             >
               <span className="contact-link__label">LinkedIn</span>
               <span className="contact-link__value">
-                linkedin.com/in/gabrielglatz
+                linkedin.com/in/gabriel-glatz
               </span>
+              <svg width="12" height="12" viewBox="0 0 14 14" fill="none">
+                <path
+                  d="M1 13L13 1M13 1H5M13 1V9"
+                  stroke="currentColor"
+                  strokeWidth="1.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+            </a>
+            <a
+              href="https://instagram.com/glatztp"
+              target="_blank"
+              rel="noreferrer"
+              className="contact-link"
+            >
+              <span className="contact-link__label">Instagram</span>
+              <span className="contact-link__value">instagram.com/glatztp</span>
               <svg width="12" height="12" viewBox="0 0 14 14" fill="none">
                 <path
                   d="M1 13L13 1M13 1H5M13 1V9"
@@ -139,7 +159,7 @@ export default function Contact() {
             <span className="contact-availability__dot" />
             <div>
               <p className="contact-availability__title">
-                Disponível para novos projetos
+                DisponÃ­vel para novos projetos
               </p>
               <p className="contact-availability__desc">
                 Aberto para freelance e oportunidades de tempo integral.
@@ -147,8 +167,6 @@ export default function Contact() {
             </div>
           </div>
         </motion.div>
-
-        {/* Right — form */}
         <motion.div
           initial={{ opacity: 0, x: 24 }}
           whileInView={{ opacity: 1, x: 0 }}
@@ -162,7 +180,7 @@ export default function Contact() {
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
             >
-              <div className="contact-success__icon">✓</div>
+              <div className="contact-success__icon">âœ“</div>
               <p>Mensagem enviada! Retornarei em breve.</p>
             </motion.div>
           ) : (

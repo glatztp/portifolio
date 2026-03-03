@@ -7,17 +7,18 @@ const NAV_LINKS = [
   { label: "Sobre", href: "#sobre" },
   { label: "Skills", href: "#skills" },
   { label: "Projetos", href: "#projetos" },
-  { label: "Experiência", href: "#experiência" },
+  { label: "ExperiÃªncia", href: "#experiÃªncia" },
   { label: "Contato", href: "#contato" },
 ];
 
 const SOCIAL = [
   { label: "GitHub", href: "https://github.com/glatztp" },
   { label: "LinkedIn", href: "https://linkedin.com/in/gabriel-glatz" },
+  { label: "Instagram", href: "https://instagram.com/glatztp" },
 ];
 
-const EMAIL = "gabriel@email.com";
-const LOCATION = "Jaraguá do Sul, SC";
+const EMAIL = "gabrielfellipeglatz@gmail.com";
+const LOCATION = "JaraguÃ¡ do Sul, SC";
 const STRIPES = ["#e8453c", "#f5b800", "#3d4fc4"];
 
 const EASE = [0.16, 1, 0.3, 1] as const;
@@ -68,15 +69,12 @@ export default function Footer() {
 
   return (
     <footer ref={footerRef} className="site-footer">
-      {/* animated top border */}
       <motion.span
         className="footer-topline"
         initial={{ scaleX: 0, opacity: 0 }}
         animate={isInView ? { scaleX: 1, opacity: 1 } : {}}
         transition={{ duration: 1.1, ease: EASE, delay: 0 }}
       />
-
-      {/* TOP ROW */}
       <div className="footer-top">
         <motion.div
           className="footer-contact-row"
@@ -139,6 +137,31 @@ export default function Footer() {
               label: "LinkedIn",
               external: true,
             },
+            {
+              href: SOCIAL[2].href,
+              icon: (
+                <svg
+                  width="14"
+                  height="14"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                >
+                  <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+                  <circle cx="12" cy="12" r="4" />
+                  <circle
+                    cx="17.5"
+                    cy="6.5"
+                    r="1"
+                    fill="currentColor"
+                    stroke="none"
+                  />
+                </svg>
+              ),
+              label: "Instagram",
+              external: true,
+            },
           ].map((item, i) => (
             <motion.a
               key={item.label}
@@ -194,8 +217,6 @@ export default function Footer() {
             </button>
           </motion.span>
         </motion.div>
-
-        {/* Badge */}
         <motion.div
           className="footer-badge"
           initial={{ scale: 0, opacity: 0, rotate: -180 }}
@@ -218,11 +239,8 @@ export default function Footer() {
           <span className="footer-badge-center">GG</span>
         </motion.div>
       </div>
-
-      {/* HERO NAME */}
       <div className="footer-hero">
         <div className="footer-name-block">
-          {/* Name rows (GABRIEL + GLATZ stacked) */}
           <div className="footer-name-rows">
             <div className="footer-name-letters" aria-label="GABRIEL">
               {gabriel.map((ch, i) => (
@@ -255,8 +273,6 @@ export default function Footer() {
               ))}
             </div>
           </div>
-
-          {/* Stripes — spans full height of both name rows */}
           <div className="footer-stripes">
             {STRIPES.map((color, i) => (
               <motion.span
@@ -272,8 +288,6 @@ export default function Footer() {
           </div>
         </div>
       </div>
-
-      {/* BOTTOM BAR */}
       <motion.div
         className="footer-bar"
         initial={{ opacity: 0 }}
