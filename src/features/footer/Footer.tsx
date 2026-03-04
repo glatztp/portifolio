@@ -7,7 +7,7 @@ const NAV_LINKS = [
   { label: "Sobre", href: "#sobre" },
   { label: "Skills", href: "#skills" },
   { label: "Projetos", href: "#projetos" },
-  { label: "ExperiÃªncia", href: "#experiÃªncia" },
+  { label: "Experiência", href: "#experiência" },
   { label: "Contato", href: "#contato" },
 ];
 
@@ -18,7 +18,7 @@ const SOCIAL = [
 ];
 
 const EMAIL = "gabrielfellipeglatz@gmail.com";
-const LOCATION = "JaraguÃ¡ do Sul, SC";
+const LOCATION = "Jaraguá do Sul, SC";
 const STRIPES = ["#e8453c", "#f5b800", "#3d4fc4"];
 
 const EASE = [0.16, 1, 0.3, 1] as const;

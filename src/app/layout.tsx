@@ -3,14 +3,14 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 
 const inter = Inter({
-  subsets: ["latin"],
+  subsets: ["latin", "latin-ext"],
   weight: ["300", "400", "500", "700", "900"],
 });
 
 export const metadata: Metadata = {
-  title: "Gabriel Glatz â€” Software Developer",
+  title: "Gabriel Glatz — Software Developer",
   description:
-    "Desenvolvedor de Software especializado em criar experiÃªncias web modernas com React, TypeScript e Node.js.",
+    "Desenvolvedor de Software especializado em criar experiências web modernas com React, TypeScript e Node.js.",
 };
 
 export default function RootLayout({

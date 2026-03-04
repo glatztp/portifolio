@@ -107,9 +107,9 @@ export default function Hero({ started }: { started: boolean }) {
             animate={started ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.7, delay: 0.82, ease }}
           >
-            Interfaces modernas do design ao deploy â€”{" "}
+            Interfaces modernas do design ao deploy –{" "}
             <span style={{ color: "var(--fg)", opacity: 0.6 }}>
-              React Â· TypeScript Â· Node.js
+              React · TypeScript · Node.js
             </span>
           </motion.p>
         </div>
@@ -121,7 +121,7 @@ export default function Hero({ started }: { started: boolean }) {
             transition={{ duration: 0.6, delay: 0.7 }}
           >
             <span className="hero-available__dot" />
-            DisponÃ­vel
+            Disponível
           </motion.div>
           <motion.div
             initial={{ opacity: 0, y: 10 }}

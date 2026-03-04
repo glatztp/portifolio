@@ -31,7 +31,7 @@ const FIELDS = [
   {
     id: "subject",
     label: "Assunto",
-    placeholder: "DiscussÃ£o do projeto",
+    placeholder: "Discussão do projeto",
     type: "text",
   },
 ];
@@ -75,7 +75,7 @@ export default function Contact() {
         >
           <p className="contact-info__desc">
             Tem um projeto em mente? Adoraria saber sobre ele. Vamos criar algo
-            incrÃ­vel juntos. Normalmente respondo em atÃ© 24 horas.
+            incrível juntos. Normalmente respondo em até 24 horas.
           </p>
 
           <div className="contact-links">
@@ -159,7 +159,7 @@ export default function Contact() {
             <span className="contact-availability__dot" />
             <div>
               <p className="contact-availability__title">
-                DisponÃ­vel para novos projetos
+                Disponível para novos projetos
               </p>
               <p className="contact-availability__desc">
                 Aberto para freelance e oportunidades de tempo integral.
@@ -180,7 +180,7 @@ export default function Contact() {
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
             >
-              <div className="contact-success__icon">âœ“</div>
+              <div className="contact-success__icon">✓</div>
               <p>Mensagem enviada! Retornarei em breve.</p>
             </motion.div>
           ) : (

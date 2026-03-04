@@ -6,46 +6,37 @@ import { motion, useScroll, useTransform, useInView } from "framer-motion";
 const PROJECTS = [
   {
     num: "01",
-    title: "Portfolio",
-    sub: "Este Site",
-    tech: ["Next.js", "TypeScript", "Framer Motion", "Tailwind CSS"],
-    desc: "PortfÃ³lio pessoal com animaÃ§Ãµes de scroll, loading screen e design inspirado nos melhores sites do Awwwards.",
-    year: "2026",
+    title: "E-Commerce",
+    sub: "Loja Online",
+    tech: ["React", "Node.js", "SQL", "REST API"],
+    desc: "Plataforma de e-commerce completa com painel admin, carrinho, checkout e integração com pagamentos.",
+    year: "2025",
     link: "#",
   },
   {
     num: "02",
-    title: "E-Commerce",
-    sub: "Loja Online",
-    tech: ["React", "Node.js", "SQL", "REST API"],
-    desc: "Plataforma de e-commerce completa com painel admin, carrinho, checkout e integraÃ§Ã£o com pagamentos.",
+    title: "Dashboard",
+    sub: "Analytics",
+    tech: ["React", "TypeScript", "Recharts", "Node.js"],
+    desc: "Dashboard de analytics com gráficos interativos, relatórios em tempo real e exportação de dados.",
     year: "2025",
     link: "#",
   },
   {
     num: "03",
-    title: "Dashboard",
-    sub: "Analytics",
-    tech: ["React", "TypeScript", "Recharts", "Node.js"],
-    desc: "Dashboard de analytics com grÃ¡ficos interativos, relatÃ³rios em tempo real e exportaÃ§Ã£o de dados.",
-    year: "2025",
-    link: "#",
-  },
-  {
-    num: "04",
     title: "Landing Page",
     sub: "Produto SaaS",
     tech: ["Next.js", "Tailwind CSS", "Framer Motion"],
-    desc: "Landing page de alta conversÃ£o para produto SaaS com animaÃ§Ãµes, depoimentos e CTA estratÃ©gico.",
+    desc: "Landing page de alta conversão para produto SaaS com animações, depoimentos e CTA estratégico.",
     year: "2024",
     link: "#",
   },
   {
-    num: "05",
+    num: "04",
     title: "App Mobile",
     sub: "React Native",
     tech: ["React Native", "Expo", "Firebase"],
-    desc: "Aplicativo mobile de gerenciamento de tarefas com sincronizaÃ§Ã£o em tempo real e notificaÃ§Ãµes push.",
+    desc: "Aplicativo mobile de gerenciamento de tarefas com sincronização em tempo real e notificações push.",
     year: "2024",
     link: "#",
   },
@@ -113,7 +104,7 @@ export default function Projects() {
           animate={titleInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
         >
-          Role para explorar â†’
+          Role para explorar →
         </motion.p>
       </div>
       <div
@@ -122,11 +113,6 @@ export default function Projects() {
         className="projects-scroll-container"
       >
         <div className="projects-sticky">
-          <div className="projects-side-label">
-            {Array.from({ length: 6 }).map((_, i) => (
-              <span key={i}>WORK&nbsp;&nbsp;</span>
-            ))}
-          </div>
           <motion.div className="projects-track" style={{ x }}>
             {PROJECTS.map((p, i) => (
               <ProjectCard

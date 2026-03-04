@@ -5,58 +5,58 @@ import { motion, useInView } from "framer-motion";
 
 const JOBS = [
   {
-    period: "2025 â€” Presente",
+    period: "2025 – Presente",
     type: "Tempo Integral",
     title: "Desenvolvedor de Sistemas Jr",
     company: "Grupo Malwee",
-    location: "JaraguÃ¡ do Sul, SC",
-    desc: "AtuaÃ§Ã£o como Desenvolvedor de Sistemas Jr, contribuindo para aplicaÃ§Ãµes internas e melhorias em plataformas web.",
+    location: "Jaraguá do Sul, SC",
+    desc: "Atuação como Desenvolvedor de Sistemas Jr, contribuindo para aplicações internas e melhorias em plataformas web.",
     highlights: [
-      "Onboarding tÃ©cnico e contribuiÃ§Ã£o para features internas",
-      "ParticipaÃ§Ã£o em revisÃ£o de cÃ³digo e correÃ§Ãµes de bugs",
+      "Onboarding técnico e contribuição para features internas",
+      "Participação em revisão de código e correções de bugs",
       "Aprimoramento de processos de deploy e CI",
     ],
   },
   {
-    period: "2024 â€” 2025",
-    type: "Meio PerÃ­odo",
+    period: "2024 – 2025",
+    type: "Meio Período",
     title: "Desenvolvedor de Software",
     company: "Grupo Malwee",
-    location: "JaraguÃ¡ do Sul, SC",
-    desc: "Desenvolvimento de aplicaÃ§Ãµes web modernas e sistemas internos utilizando React, TypeScript e Node.js.",
+    location: "Jaraguá do Sul, SC",
+    desc: "Desenvolvimento de aplicações web modernas e sistemas internos utilizando React, TypeScript e Node.js.",
     highlights: [
       "Interfaces responsivas com React e Tailwind CSS",
-      "APIs RESTful com Node.js e integraÃ§Ã£o SQL",
-      "OtimizaÃ§Ãµes de performance e UX",
+      "APIs RESTful com Node.js e integração SQL",
+      "Otimizações de performance e UX",
     ],
   },
   {
-    period: "2023 â€” Presente",
+    period: "2023 – Presente",
     type: "Freelancer",
     title: "Desenvolvedor Web Freelancer",
     company: "Freelancer",
     location: "Remoto",
-    desc: "Desenvolvimento de sites e aplicaÃ§Ãµes web para diversos clientes, focando em soluÃ§Ãµes eficientes e design responsivo.",
+    desc: "Desenvolvimento de sites e aplicações web para diversos clientes, focando em soluções eficientes e design responsivo.",
     highlights: [
       "5+ sites responsivos com React",
-      "SoluÃ§Ãµes customizadas com JavaScript",
-      "ManutenÃ§Ã£o e otimizaÃ§Ã£o de sites",
+      "Soluções customizadas com JavaScript",
+      "Manutenção e otimização de sites",
     ],
   },
 ];
 
 const EDUCATION = [
   {
-    period: "2024 â€” 2025",
-    type: "TÃ©cnico",
-    title: "TÃ©cnico em Desenvolvimento de Sistemas",
+    period: "2024 – 2025",
+    type: "Técnico",
+    title: "Técnico em Desenvolvimento de Sistemas",
     company: "SENAI",
-    location: "JaraguÃ¡ do Sul, SC",
-    desc: "FormaÃ§Ã£o tÃ©cnica completa em desenvolvimento de sistemas.",
+    location: "Jaraguá do Sul, SC",
+    desc: "Formação técnica completa em desenvolvimento de sistemas.",
     highlights: [
       "Java, JavaScript, Python e C#",
       "Projetos web e mobile",
-      "Metodologias Ã¡geis",
+      "Metodologias ágeis",
     ],
   },
 ];
@@ -111,7 +111,7 @@ function TimelineItem({
         </div>
         <h3 className="timeline-title">{item.title}</h3>
         <p className="timeline-company">
-          {item.company} â€” <span>{item.location}</span>
+          {item.company} – <span>{item.location}</span>
         </p>
         <p className="timeline-desc">{item.desc}</p>
         <ul className="timeline-highlights">
@@ -154,7 +154,7 @@ export default function Experience() {
     <section id="experiencia" className="experience-section">
       <div className="section-label">
         <span className="section-label__num">05</span>
-        <span className="section-label__text">ExperiÃªncia</span>
+        <span className="section-label__text">Experiência</span>
       </div>
 
       <div className="experience-heading-wrap">
@@ -177,7 +177,7 @@ export default function Experience() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            ExperiÃªncia Profissional
+            Experiência Profissional
           </motion.p>
           <div className="timeline">
             {JOBS.map((job, i) => (
@@ -198,7 +198,7 @@ export default function Experience() {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.1 }}
           >
-            EducaÃ§Ã£o
+            Educação
           </motion.p>
           <div className="timeline">
             {EDUCATION.map((edu, i) => (
@@ -227,11 +227,11 @@ export default function Experience() {
                 marginBottom: "1rem",
               }}
             />
-            <p className="learning-card__title">Aprendizado ContÃ­nuo</p>
+            <p className="learning-card__title">Aprendizado Contínuo</p>
             <p className="learning-card__desc">
-              Sempre expandindo conhecimentos atravÃ©s de cursos, certificaÃ§Ãµes e
-              projetos prÃ¡ticos. Atualmente focando em padrÃµes avanÃ§ados do
-              React, cloud e prÃ¡ticas modernas de desenvolvimento.
+              Sempre expandindo conhecimentos através de cursos, certificações e
+              projetos práticos. Atualmente focando em padrões avançados do
+              React, cloud e práticas modernas de desenvolvimento.
             </p>
           </motion.div>
         </div>

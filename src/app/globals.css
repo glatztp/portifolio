@@ -624,22 +624,46 @@ body {
 .about-section {
   padding: 7rem 2.5rem;
   border-top: 1px solid var(--muted);
+  position: relative;
+  overflow: hidden;
+}
+
+.about-bg-number {
+  position: absolute;
+  top: 6%;
+  right: -2%;
+  font-size: clamp(12rem, 28vw, 28rem);
+  font-weight: 900;
+  letter-spacing: -0.05em;
+  color: var(--fg);
+  line-height: 1;
+  pointer-events: none;
+  user-select: none;
+  will-change: transform, opacity;
 }
 
 .about-heading {
-  font-size: clamp(2.8rem, 7vw, 8rem);
+  font-size: clamp(2.6rem, 6.5vw, 7.5rem);
   font-weight: 900;
   line-height: 0.9;
   text-transform: uppercase;
   letter-spacing: -0.02em;
   color: var(--fg);
+  display: block;
 }
 .about-heading--accent {
   color: var(--accent);
+  position: relative;
+  z-index: 9999;
 }
 .about-heading--outline {
-  -webkit-text-stroke: 1px var(--fg);
   color: transparent;
+  background: linear-gradient(135deg, #e8453c 0%, #3d4fc4 50%, #f5b800 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  opacity: 0.95;
+  position: relative;
+  z-index: 1;
 }
 
 .about-grid {
@@ -662,12 +686,18 @@ body {
   gap: 0;
 }
 
+.about-heading-group {
+  margin-bottom: 0.5rem;
+  will-change: transform;
+}
+
 .about-desc {
-  font-size: 0.95rem;
-  line-height: 1.75;
-  color: #8a8a9a;
-  margin-top: 2rem;
+  font-size: 1rem;
+  line-height: 1.8;
+  color: #9a9aae;
+  margin-top: 1rem;
   max-width: 480px;
+  letter-spacing: 0.01em;
 }
 
 .about-cta {
@@ -716,6 +746,8 @@ body {
 }
 .about-img-inner {
   overflow: hidden;
+  will-change: transform;
+  position: relative;
 }
 .about-img-placeholder {
   width: 100%;
@@ -728,6 +760,39 @@ body {
   font-weight: 900;
   color: #5a5a6e;
   letter-spacing: 0.05em;
+  position: relative;
+  overflow: hidden;
+}
+/* subtle diagonal overlay on the placeholder */
+.about-img-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    transparent 40%,
+    rgba(160, 126, 212, 0.08) 100%
+  );
+  pointer-events: none;
+}
+/* Corner bracket decorations */
+.about-img-corner {
+  position: absolute;
+  width: 22px;
+  height: 22px;
+  z-index: 2;
+  pointer-events: none;
+}
+.about-img-corner--tl {
+  top: -8px;
+  left: -8px;
+  border-top: 1.5px solid var(--accent);
+  border-left: 1.5px solid var(--accent);
+}
+.about-img-corner--br {
+  bottom: -8px;
+  right: -8px;
+  border-bottom: 1.5px solid var(--accent);
+  border-right: 1.5px solid var(--accent);
 }
 .about-img-tag {
   position: absolute;
@@ -778,6 +843,24 @@ body {
   display: flex;
   flex-direction: column;
   gap: 0.4rem;
+  position: relative;
+  overflow: hidden;
+}
+.about-stat::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    ellipse at 30% 50%,
+    rgba(160, 126, 212, 0.05) 0%,
+    transparent 70%
+  );
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+.about-stat:hover::after {
+  opacity: 1;
 }
 .about-stat:last-child {
   border-right: none;
@@ -787,12 +870,14 @@ body {
   font-weight: 900;
   color: var(--accent);
   line-height: 1;
+  letter-spacing: -0.02em;
 }
 .about-stat__label {
-  font-size: 0.65rem;
-  letter-spacing: 0.2em;
+  font-size: 0.62rem;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: #6a6a7a;
+  color: #7a7a8e;
+  margin-top: 0.2rem;
 }
 
 .about-values-title {
@@ -823,23 +908,47 @@ body {
   padding: 2rem 1.5rem;
   display: flex;
   flex-direction: column;
-  gap: 0.8rem;
+  gap: 0.75rem;
+  transition: background 0.35s ease;
+  cursor: default;
+  position: relative;
+  overflow: hidden;
+}
+.value-card:hover {
+  background: rgba(160, 126, 212, 0.06);
+}
+.value-card:hover .value-card__title {
+  color: var(--accent);
 }
 .value-card__num {
-  font-size: 0.6rem;
+  font-size: 0.58rem;
   color: var(--accent);
-  letter-spacing: 0.2em;
-  font-weight: 600;
+  letter-spacing: 0.22em;
+  font-weight: 700;
+  opacity: 0.8;
 }
 .value-card__title {
-  font-size: 0.95rem;
+  font-size: 0.92rem;
   font-weight: 700;
   color: var(--fg);
+  letter-spacing: 0.01em;
+  transition: color 0.3s ease;
 }
 .value-card__desc {
   font-size: 0.8rem;
-  line-height: 1.65;
-  color: #6a6a7a;
+  line-height: 1.7;
+  color: #7a7a8e;
+}
+/* Animated bottom accent bar */
+.value-card__bar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 2px;
+  width: 100%;
+  background: linear-gradient(90deg, var(--accent), transparent);
+  transform-origin: left;
+  pointer-events: none;
 }
 
 .projects-section {
@@ -1444,7 +1553,7 @@ body {
 }
 
 .contact-field__line {
-  display: none; 
+  display: none;
 }
 
 .contact-submit {
