@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef, useEffect, useState } from "react";
-import Image from "next/image";
+// import Image from "next/image";
 import {
   motion,
   useInView,
@@ -136,10 +136,10 @@ export default function About() {
     offset: ["start end", "end start"],
   });
 
-  const imgY = useTransform(scrollYProgress, [0, 1], ["-10%", "10%"]);
+  // const imgY = useTransform(scrollYProgress, [0, 1], ["-10%", "10%"]);
   const headingX = useTransform(scrollYProgress, [0, 0.5], ["0%", "-2%"]);
 
-  const smoothImgY = useSpring(imgY, { stiffness: 60, damping: 18 });
+  // const smoothImgY = useSpring(imgY, { stiffness: 60, damping: 18 });
   const smoothHeadingX = useSpring(headingX, { stiffness: 50, damping: 22 });
 
   const bigNumY = useTransform(scrollYProgress, [0, 0.6], ["20px", "-60px"]);
@@ -213,38 +213,6 @@ export default function About() {
             </a>
           </FadeIn>
         </div>
-
-        {/* <div className="about-right-col">
-          <FadeIn delay={0.2} fromX={30}>
-            <div className="about-img-wrap">
-              <span className="about-img-corner about-img-corner--tl" />
-              <span className="about-img-corner about-img-corner--br" />
-
-              <motion.div className="about-img-inner" style={{ y: smoothImgY }}>
-                 <Image
-                  src="/profile.png"
-                  alt="Foto de perfil"
-                  width={380}
-                  height={507}
-                  style={{
-                    width: "100%",
-                    height: "auto",
-                    display: "block",
-                    objectFit: "cover",
-                    objectPosition: "center top",
-                  }}
-                  priority
-                /> 
-                <div className="about-img-overlay" />
-              </motion.div>
-
-              <div className="about-img-tag">
-                <span className="about-img-tag__dot" />
-                Disponível para projetos
-              </div>
-            </div>
-          </FadeIn>
-        </div> */}
       </div>
 
       <div className="about-stats">
