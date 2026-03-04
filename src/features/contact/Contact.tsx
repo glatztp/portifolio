@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef, useState } from "react";
-import { motion, useInView } from "framer-motion";
+import { motion, useInView, useScroll, useTransform } from "framer-motion";
 
 function RevealLine({
   children,
@@ -40,6 +40,19 @@ export default function Contact() {
   const [focused, setFocused] = useState<string | null>(null);
   const [sent, setSent] = useState(false);
   const formRef = useRef<HTMLFormElement>(null);
+  const sectionRef = useRef(null);
+
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start end", "end start"],
+  });
+
+  const bigNumY = useTransform(scrollYProgress, [0, 0.6], ["20px", "-60px"]);
+  const bigNumOpacity = useTransform(
+    scrollYProgress,
+    [0, 0.15, 0.55, 0.7],
+    [0, 0.06, 0.06, 0],
+  );
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -47,7 +60,14 @@ export default function Contact() {
   };
 
   return (
-    <section id="contato" className="contact-section">
+    <section id="contato" className="contact-section" ref={sectionRef}>
+      <motion.span
+        className="contact-bg-number"
+        style={{ y: bigNumY, opacity: bigNumOpacity }}
+        aria-hidden
+      >
+        06
+      </motion.span>
       <div className="section-label">
         <span className="section-label__num">06</span>
         <span className="section-label__text">Contato</span>

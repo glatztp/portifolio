@@ -154,6 +154,7 @@ function MobileProjectCard({
 
 export default function Projects() {
   const containerRef = useRef<HTMLDivElement>(null);
+  const sectionRef = useRef<HTMLElement>(null);
   const [activeIndex, setActiveIndex] = useState(0);
   const [isMobile, setIsMobile] = useState(false);
 
@@ -186,9 +187,28 @@ export default function Projects() {
   const titleRef = useRef(null);
   const titleInView = useInView(titleRef, { once: true, margin: "-80px" });
 
+  const { scrollYProgress: headerScrollY } = useScroll({
+    target: titleRef,
+    offset: ["start end", "end start"],
+  });
+
+  const bigNumY = useTransform(headerScrollY, [0, 1], ["30px", "-60px"]);
+  const bigNumOpacity = useTransform(
+    headerScrollY,
+    [0, 0.08, 0.7, 1.0],
+    [0, 0.06, 0.06, 0],
+  );
+
   return (
-    <section id="projetos" className="projects-section">
+    <section id="projetos" className="projects-section" ref={sectionRef}>
       <div className="projects-header" ref={titleRef}>
+        <motion.span
+          className="projects-bg-number"
+          style={{ y: bigNumY, opacity: bigNumOpacity }}
+          aria-hidden
+        >
+          03
+        </motion.span>
         <div className="section-label">
           <span className="section-label__num">03</span>
           <span className="section-label__text">Projetos</span>

@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef } from "react";
-import { motion, useInView } from "framer-motion";
+import { motion, useInView, useScroll, useTransform } from "framer-motion";
 
 const JOBS = [
   {
@@ -20,13 +20,13 @@ const JOBS = [
   {
     period: "2024 – 2025",
     type: "Meio Período",
-    title: "Desenvolvedor de Software",
+    title: "Jovem Aprendiz em Desenvolvimento de Sistemas",
     company: "Grupo Malwee",
     location: "Jaraguá do Sul, SC",
     desc: "Desenvolvimento de aplicações web modernas e sistemas internos utilizando React, TypeScript e Node.js.",
     highlights: [
       "Interfaces responsivas com React e Tailwind CSS",
-      "APIs RESTful com Node.js e integração SQL",
+      "APIs RESTful com Node.js",
       "Otimizações de performance e UX",
     ],
   },
@@ -150,8 +150,29 @@ function RevealLine({
 }
 
 export default function Experience() {
+  const sectionRef = useRef<HTMLElement>(null);
+
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start end", "end start"],
+  });
+
+  const bigNumY = useTransform(scrollYProgress, [0, 0.6], ["20px", "-60px"]);
+  const bigNumOpacity = useTransform(
+    scrollYProgress,
+    [0, 0.15, 0.55, 0.7],
+    [0, 0.06, 0.06, 0],
+  );
+
   return (
-    <section id="experiencia" className="experience-section">
+    <section id="experiencia" className="experience-section" ref={sectionRef}>
+      <motion.span
+        className="experience-bg-number"
+        style={{ y: bigNumY, opacity: bigNumOpacity }}
+        aria-hidden
+      >
+        05
+      </motion.span>
       <div className="section-label">
         <span className="section-label__num">05</span>
         <span className="section-label__text">Experiência</span>
