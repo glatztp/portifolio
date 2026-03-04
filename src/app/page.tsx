@@ -3,6 +3,9 @@
 import { useState } from "react";
 import LoadingScreen from "@/components/LoadingScreen";
 import CustomCursor from "@/components/CustomCursor";
+import SmoothScroll from "@/components/SmoothScroll";
+import ScrollProgress from "@/components/ScrollProgress";
+import EasterEggTerminal from "@/components/Terminal";
 import Hero from "@/features/hero/Hero";
 import About from "@/features/about/About";
 import Projects from "@/features/projects/Projects";
@@ -16,7 +19,10 @@ export default function Home() {
 
   return (
     <>
+      <SmoothScroll />
       <CustomCursor />
+      <ScrollProgress />
+      <EasterEggTerminal />
       <LoadingScreen onComplete={() => setLoaded(true)} />
       <main
         style={{

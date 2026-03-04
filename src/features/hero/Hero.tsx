@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import MagneticButton from "@/components/MagneticButton";
 
 const NAV = ["Sobre", "Projetos", "Contato"];
 const STRIPES = ["#e8453c", "#f5b800", "#3d4fc4"];
@@ -128,24 +129,26 @@ export default function Hero({ started }: { started: boolean }) {
             animate={started ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.7, delay: 0.85, ease }}
           >
-            <a href="#contato" className="hero-cta">
-              <span>Vamos conversar</span>
-              <svg
-                width="13"
-                height="13"
-                viewBox="0 0 14 14"
-                fill="none"
-                aria-hidden
-              >
-                <path
-                  d="M1 13L13 1M13 1H5M13 1V9"
-                  stroke="currentColor"
-                  strokeWidth="1.5"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              </svg>
-            </a>
+            <MagneticButton>
+              <a href="#contato" className="hero-cta">
+                <span>Vamos conversar</span>
+                <svg
+                  width="13"
+                  height="13"
+                  viewBox="0 0 14 14"
+                  fill="none"
+                  aria-hidden
+                >
+                  <path
+                    d="M1 13L13 1M13 1H5M13 1V9"
+                    stroke="currentColor"
+                    strokeWidth="1.5"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+              </a>
+            </MagneticButton>
           </motion.div>
         </div>
       </div>

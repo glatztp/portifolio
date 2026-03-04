@@ -2753,3 +2753,257 @@ body {
     letter-spacing: 0.15em;
   }
 }
+
+/* ─── Scroll Progress Bar ─────────────────────────────── */
+.scroll-progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--accent);
+  transform-origin: left;
+  z-index: 10001;
+  pointer-events: none;
+  box-shadow: 0 0 8px rgba(160, 126, 212, 0.6);
+}
+
+/* ─── Easter Egg Terminal ─────────────────────────────── */
+.terminal-hint-badge {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  z-index: 8000;
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.35rem 0.75rem 0.35rem 0.5rem;
+  background: rgba(30, 30, 40, 0.85);
+  border: 1px solid rgba(160, 126, 212, 0.25);
+  border-radius: 6px;
+  cursor: pointer;
+  backdrop-filter: blur(8px);
+  transition:
+    border-color 0.2s,
+    background 0.2s;
+  user-select: none;
+}
+
+.terminal-hint-badge:hover {
+  border-color: rgba(160, 126, 212, 0.55);
+  background: rgba(40, 40, 55, 0.95);
+}
+
+.terminal-hint-slash {
+  font-family: "Courier New", monospace;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--accent);
+  line-height: 1;
+  padding: 0.1rem 0.3rem;
+  background: rgba(160, 126, 212, 0.12);
+  border-radius: 3px;
+}
+
+.terminal-hint-text {
+  font-size: 0.65rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(237, 232, 220, 0.4);
+}
+
+.terminal-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 8001;
+  background: rgba(10, 10, 18, 0.7);
+  backdrop-filter: blur(4px);
+}
+
+.terminal-center {
+  position: fixed;
+  inset: 0;
+  z-index: 8002;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.terminal-window {
+  pointer-events: all;
+  width: min(680px, 94vw);
+  max-height: min(520px, 88vh);
+  display: flex;
+  flex-direction: column;
+  background: #0d0d14;
+  border: 1px solid rgba(160, 126, 212, 0.2);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow:
+    0 32px 80px rgba(0, 0, 0, 0.7),
+    0 0 0 0.5px rgba(255, 255, 255, 0.06) inset;
+}
+
+.terminal-titlebar {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.65rem 1rem;
+  background: #141420;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  flex-shrink: 0;
+}
+
+.terminal-dots {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+
+.terminal-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  flex-shrink: 0;
+}
+
+.terminal-dot--red {
+  background: #ff5f56;
+}
+.terminal-dot--yellow {
+  background: #ffbd2e;
+}
+.terminal-dot--green {
+  background: #27c93f;
+}
+.terminal-dot--yellow,
+.terminal-dot--green {
+  cursor: default;
+}
+
+.terminal-title {
+  flex: 1;
+  text-align: center;
+  font-size: 0.68rem;
+  letter-spacing: 0.1em;
+  color: rgba(237, 232, 220, 0.35);
+  text-transform: uppercase;
+}
+
+.terminal-shortcut {
+  font-size: 0.6rem;
+  letter-spacing: 0.08em;
+  color: rgba(237, 232, 220, 0.18);
+  text-transform: uppercase;
+}
+
+.terminal-body {
+  flex: 1;
+  overflow-y: auto;
+  padding: 1rem 1.25rem 0.75rem;
+  font-family: "Courier New", "Menlo", monospace;
+  font-size: 0.78rem;
+  line-height: 1.7;
+  cursor: text;
+  scroll-behavior: smooth;
+}
+
+.terminal-body::-webkit-scrollbar {
+  width: 4px;
+}
+.terminal-body::-webkit-scrollbar-track {
+  background: transparent;
+}
+.terminal-body::-webkit-scrollbar-thumb {
+  background: rgba(160, 126, 212, 0.25);
+  border-radius: 4px;
+}
+
+.terminal-line {
+  white-space: pre;
+  display: block;
+}
+
+.terminal-line--banner {
+  color: var(--accent);
+  font-weight: 600;
+  opacity: 0.9;
+}
+
+.terminal-line--input {
+  color: rgba(237, 232, 220, 0.55);
+  margin-top: 0.2rem;
+}
+
+.terminal-line--output {
+  color: rgba(237, 232, 220, 0.8);
+}
+
+.terminal-line--error {
+  color: #e8453c;
+}
+
+.terminal-line--hint {
+  color: rgba(237, 232, 220, 0.35);
+  font-style: italic;
+}
+
+.terminal-input-row {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 0.15rem;
+  padding-bottom: 0.5rem;
+}
+
+.terminal-prompt {
+  color: var(--accent);
+  white-space: nowrap;
+  flex-shrink: 0;
+  font-weight: 600;
+}
+
+.terminal-input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: rgba(237, 232, 220, 0.9);
+  font-family: "Courier New", "Menlo", monospace;
+  font-size: 0.78rem;
+  caret-color: var(--accent);
+  cursor: text;
+}
+
+@media (max-width: 480px) {
+  .terminal-hint-badge {
+    bottom: 1rem;
+    right: 1rem;
+  }
+
+  .terminal-body {
+    font-size: 0.72rem;
+  }
+
+  .terminal-line--banner {
+    font-size: 0.5rem;
+  }
+}
+
+/* ===== SCREEN GLITCH ===== */
+
+@keyframes sg-blackout {
+  0% {
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+  }
+}
