@@ -2926,6 +2926,10 @@ body {
 .terminal-line {
   white-space: pre;
   display: block;
+  /* prevent any single line from forcing horizontal scroll */
+  max-width: 100%;
+  overflow-x: hidden;
+  text-overflow: ellipsis;
 }
 
 .terminal-line--banner {
@@ -2979,18 +2983,49 @@ body {
   cursor: text;
 }
 
-@media (max-width: 480px) {
+@media (max-width: 640px) {
   .terminal-hint-badge {
     bottom: 1rem;
     right: 1rem;
   }
 
-  .terminal-body {
-    font-size: 0.72rem;
+  /* full-width sheet on mobile */
+  .terminal-window {
+    width: 94vw !important;
+    max-height: 80vh !important;
+    border-radius: 10px;
   }
 
+  .terminal-body {
+    font-size: 0.73rem;
+    padding: 0.75rem 0.9rem 0.6rem;
+  }
+
+  .terminal-input {
+    font-size: 0.73rem;
+  }
+
+  /* shrink banner so it doesn't overflow the narrow window */
   .terminal-line--banner {
-    font-size: 0.5rem;
+    font-size: 0.42rem;
+    letter-spacing: 0;
+  }
+
+  /* warning overlay: stack buttons on very narrow screens */
+  .terminal-warning-actions {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .terminal-warning-actions button {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 380px) {
+  .terminal-line--banner {
+    font-size: 0.34rem;
   }
 }
 
@@ -3006,4 +3041,83 @@ body {
   100% {
     opacity: 1;
   }
+}
+
+@keyframes sg-cursor-blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+/* ===== MATRIX MODE — applied after glitch completes ===== */
+
+/*
+ * Override every design token to a Matrix green palette.
+ * Elements that use var(--bg) / var(--fg) / var(--accent) / var(--muted)
+ * will transition to the new values because we also add a broad
+ * color/background-color transition here.
+ */
+html.matrix-mode {
+  --bg: #060d06;
+  --fg: #00ff41;
+  --accent: #00e676;
+  --muted: #0c1a0c;
+  --grain-opacity: 0.03;
+}
+
+/* smooth materialisation — cover background, text, borders, shadows */
+html.matrix-mode,
+html.matrix-mode body,
+html.matrix-mode section,
+html.matrix-mode header,
+html.matrix-mode footer,
+html.matrix-mode div,
+html.matrix-mode p,
+html.matrix-mode h1,
+html.matrix-mode h2,
+html.matrix-mode h3,
+html.matrix-mode h4,
+html.matrix-mode span,
+html.matrix-mode a,
+html.matrix-mode button,
+html.matrix-mode li {
+  transition:
+    background-color 2.8s cubic-bezier(0.22, 1, 0.36, 1),
+    color 2.8s cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 2.8s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 2.8s cubic-bezier(0.22, 1, 0.36, 1) !important;
+}
+
+/* persistent CRT scanlines over everything */
+html.matrix-mode body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 9901;
+  pointer-events: none;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(0, 0, 0, 0.12) 2px,
+    rgba(0, 0, 0, 0.12) 4px
+  );
+}
+
+/* text glow */
+html.matrix-mode body {
+  text-shadow: 0 0 8px rgba(0, 255, 65, 0.25);
+}
+
+/* scrollbar tint */
+html.matrix-mode ::-webkit-scrollbar-thumb {
+  background: rgba(0, 200, 50, 0.4);
+}
+html.matrix-mode ::selection {
+  background: rgba(0, 255, 65, 0.35);
+  color: #000;
 }
