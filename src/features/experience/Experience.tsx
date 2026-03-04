@@ -61,6 +61,25 @@ const EDUCATION = [
   },
 ];
 
+const highlightVariants = {
+  hidden: {},
+  visible: {
+    transition: { staggerChildren: 0.07 },
+  },
+};
+
+const highlightItem = {
+  hidden: { opacity: 0, x: -10 },
+  visible: {
+    opacity: 1,
+    x: 0,
+    transition: {
+      duration: 0.45,
+      ease: [0.22, 1, 0.36, 1] as [number, number, number, number],
+    },
+  },
+};
+
 function TimelineItem({
   item,
   index,
@@ -72,56 +91,95 @@ function TimelineItem({
 }) {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-80px" });
+  const baseDelay = index * 0.12;
+  const cardNum = String(index + 1).padStart(2, "0");
 
   return (
     <div ref={ref} className="timeline-item">
-      {!isLast && (
-        <div className="timeline-line">
-          <motion.div
-            className="timeline-line__fill"
-            initial={{ scaleY: 0 }}
-            animate={inView ? { scaleY: 1 } : {}}
-            transition={{ duration: 1.2, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
+      {/* Left track: dot + vertical line */}
+      <div className="timeline-track">
+        <motion.div
+          className="timeline-dot-outer"
+          initial={{ scale: 0, opacity: 0 }}
+          animate={inView ? { scale: 1, opacity: 1 } : {}}
+          transition={{ duration: 0.5, delay: baseDelay, ease: [0.22, 1, 0.36, 1] }}
+        >
+          <motion.span
+            style={{
+              position: "absolute",
+              inset: -5,
+              borderRadius: "50%",
+              border: "1px solid rgba(160,126,212,0.5)",
+            }}
+            initial={{ scale: 0.7, opacity: 0.8 }}
+            animate={inView ? { scale: 2.2, opacity: 0 } : {}}
+            transition={{ duration: 1.4, delay: baseDelay + 0.3, ease: "easeOut" }}
           />
-        </div>
-      )}
-      <motion.div
-        className="timeline-dot"
-        initial={{ scale: 0, opacity: 0 }}
-        animate={inView ? { scale: 1, opacity: 1 } : {}}
-        transition={{
-          duration: 0.4,
-          delay: index * 0.08,
-          ease: [0.22, 1, 0.36, 1],
-        }}
-      />
+          <div className="timeline-dot-inner" />
+        </motion.div>
+
+        {!isLast && (
+          <div className="timeline-line">
+            <motion.div
+              className="timeline-line__fill"
+              initial={{ scaleY: 0 }}
+              animate={inView ? { scaleY: 1 } : {}}
+              transition={{ duration: 1.6, delay: baseDelay + 0.35, ease: [0.22, 1, 0.36, 1] }}
+            />
+          </div>
+        )}
+      </div>
+
+      {/* Card */}
       <motion.div
         className="timeline-content"
-        initial={{ opacity: 0, x: -24 }}
-        animate={inView ? { opacity: 1, x: 0 } : {}}
+        initial={{ opacity: 0, y: 20 }}
+        animate={inView ? { opacity: 1, y: 0 } : {}}
         transition={{
-          duration: 0.8,
-          delay: index * 0.08 + 0.1,
+          duration: 0.75,
+          delay: baseDelay + 0.1,
           ease: [0.22, 1, 0.36, 1],
         }}
+        whileHover={{
+          y: -3,
+          transition: { duration: 0.3, ease: [0.22, 1, 0.36, 1] },
+        }}
       >
-        <div className="timeline-meta">
+        {/* Ghost number in bg */}
+        <span className="timeline-card-num" aria-hidden>
+          {cardNum}
+        </span>
+
+        <motion.div
+          className="timeline-meta"
+          initial={{ opacity: 0 }}
+          animate={inView ? { opacity: 1 } : {}}
+          transition={{ duration: 0.5, delay: baseDelay + 0.22 }}
+        >
           <span className="timeline-period">{item.period}</span>
           <span className="timeline-type">{item.type}</span>
-        </div>
+        </motion.div>
+
         <h3 className="timeline-title">{item.title}</h3>
-        <p className="timeline-company">
-          {item.company} – <span>{item.location}</span>
-        </p>
+        <div className="timeline-org">
+          <span className="timeline-company-name">{item.company}</span>
+          <span className="timeline-location">{item.location}</span>
+        </div>
         <p className="timeline-desc">{item.desc}</p>
-        <ul className="timeline-highlights">
+
+        <motion.ul
+          className="timeline-highlights"
+          variants={highlightVariants}
+          initial="hidden"
+          animate={inView ? "visible" : "hidden"}
+        >
           {item.highlights.map((h) => (
-            <li key={h}>
+            <motion.li key={h} variants={highlightItem}>
               <span className="timeline-bullet" />
               {h}
-            </li>
+            </motion.li>
           ))}
-        </ul>
+        </motion.ul>
       </motion.div>
     </div>
   );
@@ -193,8 +251,8 @@ export default function Experience() {
         <div>
           <motion.p
             className="experience-col-label"
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
+            initial={{ opacity: 0, y: 8 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
@@ -214,8 +272,8 @@ export default function Experience() {
         <div>
           <motion.p
             className="experience-col-label"
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
+            initial={{ opacity: 0, y: 8 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.1 }}
           >
@@ -233,21 +291,16 @@ export default function Experience() {
           </div>
           <motion.div
             className="learning-card"
-            initial={{ opacity: 0, y: 24 }}
+            initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-60px" }}
+            whileHover={{
+              y: -3,
+              transition: { duration: 0.3, ease: [0.22, 1, 0.36, 1] },
+            }}
             transition={{ duration: 0.8, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
           >
-            <div
-              className="timeline-dot"
-              style={{
-                position: "relative",
-                transform: "none",
-                top: "auto",
-                left: "auto",
-                marginBottom: "1rem",
-              }}
-            />
+            <div className="learning-card__icon">✦</div>
             <p className="learning-card__title">Aprendizado Contínuo</p>
             <p className="learning-card__desc">
               Sempre expandindo conhecimentos através de cursos, certificações e
