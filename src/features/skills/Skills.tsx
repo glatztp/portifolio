@@ -24,7 +24,7 @@ const CATEGORIES = [
     icon: "◉",
     color: "#4fa8d4",
     desc: "APIs REST, banco de dados e lógica de negócio no servidor.",
-    skills: ["Node.js", "Express", "REST APIs", "SQL"],
+    skills: ["Node.js", "REST APIs", "SQL"],
   },
   {
     label: "Ferramentas",

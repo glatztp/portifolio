@@ -9,7 +9,7 @@ interface LanguageContextType {
 }
 
 const LanguageContext = createContext<LanguageContextType | undefined>(
-  undefined
+  undefined,
 );
 
 const translations = {
@@ -33,7 +33,7 @@ const translations = {
 
     // About
     "about.title": "Sobre Mim",
-    "about.subtitle": "Desenvolvedor apaixonado por tecnologia",
+    "about.subtitle": "Desenvolvedor Entusiasta por tecnologia",
     "about.description":
       "Sou um desenvolvedor de software especializado em criar aplicações web modernas e responsivas. Com experiência em React, TypeScript, Node.js e design UI/UX, foco em entregar soluções que combinam funcionalidade excepcional com experiências de usuário intuitivas.",
     "about.description2":
@@ -182,7 +182,7 @@ const translations = {
 
     // Footer
     "footer.description":
-      "Software Developer apaixonado por criar experiências digitais excepcionais. Transformando ideias em apps escaláveis e centrados no usuário.",
+      "Software Developer Entusiasta por criar experiências digitais excepcionais. Transformando ideias em apps escaláveis e centrados no usuário.",
     "footer.followMe": "Me siga",
     "footer.navigation": "Navegação",
     "footer.services": "Serviços",

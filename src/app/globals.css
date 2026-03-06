@@ -2965,7 +2965,7 @@ body {
 }
 
 .terminal-prompt {
-  color: var(--accent);
+  color: #00e676;
   white-space: nowrap;
   flex-shrink: 0;
   font-weight: 600;
