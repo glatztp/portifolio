@@ -2771,8 +2771,8 @@ body {
 /* ─── Easter Egg Terminal ─────────────────────────────── */
 .terminal-hint-badge {
   position: fixed;
-  bottom: 1.5rem;
-  right: 1.5rem;
+  top: 2rem;
+  left: 1.5rem;
   z-index: 8000;
   display: flex;
   align-items: center;
@@ -2985,7 +2985,7 @@ body {
 
 @media (max-width: 640px) {
   .terminal-hint-badge {
-    bottom: 1rem;
+    top: 2rem;
     right: 1rem;
   }
 

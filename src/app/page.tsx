@@ -13,6 +13,7 @@ import Skills from "@/features/skills/Skills";
 import Experience from "@/features/experience/Experience";
 import Contact from "@/features/contact/Contact";
 import Footer from "@/features/footer/Footer";
+import ScrollToTopButton from "@/components/ScrollToTopButton";
 
 export default function Home() {
   const [loaded, setLoaded] = useState(false);
@@ -38,6 +39,7 @@ export default function Home() {
         <Contact />
         <Footer />
       </main>
+      <ScrollToTopButton />
     </>
   );
 }
