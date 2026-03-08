@@ -1,5 +1,12 @@
 "use client";
 
+function getProjectUrl(link: string) {
+  if (link.startsWith("http://") || link.startsWith("https://")) {
+    return link;
+  }
+  return `https://${link}`;
+}
+
 import { useRef, useEffect, useState } from "react";
 import {
   motion,
@@ -120,7 +127,12 @@ function MobileProjectCard({
           />
         </svg>
         <span className="pcm__num">{project.num}</span>
-        <a href={project.link} className="pcm__link-btn">
+        <a
+          href={getProjectUrl(project.link)}
+          className="pcm__link-btn"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
             <path
               d="M1 13L13 1M13 1H5M13 1V9"
@@ -339,7 +351,12 @@ function ProjectCard({
           </svg>
           <span className="project-card__big-num">{project.num}</span>
         </div>
-        <a href={project.link} className="project-card__overlay">
+        <a
+          href={getProjectUrl(project.link)}
+          className="project-card__overlay"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           <span>Ver Projeto</span>
           <svg width="16" height="16" viewBox="0 0 14 14" fill="none">
             <path
