@@ -13,6 +13,7 @@ import Skills from "@/features/skills/Skills";
 import Experience from "@/features/experience/Experience";
 import Contact from "@/features/contact/Contact";
 import Footer from "@/features/footer/Footer";
+import ScrollToTopButton from "@/components/ScrollToTopButton";
 
 export default function Home() {
   const [loaded, setLoaded] = useState(false);
@@ -38,25 +39,7 @@ export default function Home() {
         <Contact />
         <Footer />
       </main>
-      <SmoothScroll />
-      <CustomCursor />
-      <ScrollProgress />
-      <EasterEggTerminal />
-      <LoadingScreen onComplete={() => setLoaded(true)} />
-      <main
-        style={{
-          opacity: loaded ? 1 : 0,
-          transition: "opacity 0.5s ease 0.1s",
-        }}
-      >
-        <Hero started={loaded} />
-        <About />
-        <Projects />
-        <Skills />
-        <Experience />
-        <Contact />
-        <Footer />
-      </main>
+      <ScrollToTopButton />
     </>
   );
 }
