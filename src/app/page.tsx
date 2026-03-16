@@ -38,6 +38,25 @@ export default function Home() {
         <Contact />
         <Footer />
       </main>
+      <SmoothScroll />
+      <CustomCursor />
+      <ScrollProgress />
+      <EasterEggTerminal />
+      <LoadingScreen onComplete={() => setLoaded(true)} />
+      <main
+        style={{
+          opacity: loaded ? 1 : 0,
+          transition: "opacity 0.5s ease 0.1s",
+        }}
+      >
+        <Hero started={loaded} />
+        <About />
+        <Projects />
+        <Skills />
+        <Experience />
+        <Contact />
+        <Footer />
+      </main>
     </>
   );
 }

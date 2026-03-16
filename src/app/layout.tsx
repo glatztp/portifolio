@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+
 import "./globals.css";
+import { ThemeProvider } from "@/components/ThemeProvider";
 
 const inter = Inter({
   subsets: ["latin", "latin-ext"],
@@ -21,8 +23,10 @@ export default function RootLayout({
   return (
     <html lang="pt-BR">
       <body className={inter.className}>
-        <div className="grain-overlay" aria-hidden="true" />
-        {children}
+        <ThemeProvider>
+          <div className="grain-overlay" aria-hidden="true" />
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   );

@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import MagneticButton from "@/components/MagneticButton";
+import ThemeToggle from "@/components/ThemeToggle";
 
 const NAV = ["Sobre", "Projetos", "Contato"];
 const STRIPES = ["#e8453c", "#f5b800", "#3d4fc4"];
@@ -34,21 +35,30 @@ export default function Hero({ started }: { started: boolean }) {
         initial={{ opacity: 0 }}
         animate={started ? { opacity: 1 } : {}}
         transition={{ duration: 1, delay: 0.1 }}
+        style={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "space-between",
+        }}
       >
-        <span className="hero-nav__brand">GG</span>
-        <div className="hero-nav__links">
-          {NAV.map((item, i) => (
-            <motion.a
-              key={item}
-              href={`#${item.toLowerCase()}`}
-              className="hero-nav__link"
-              initial={{ opacity: 0, y: -6 }}
-              animate={started ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.5, delay: 0.15 + i * 0.07, ease }}
-            >
-              {item}
-            </motion.a>
-          ))}
+        <span className="hero-nav__brand">
+          <ThemeToggle />
+        </span>
+        <div style={{ display: "flex", alignItems: "center", gap: 16 }}>
+          <div className="hero-nav__links">
+            {NAV.map((item, i) => (
+              <motion.a
+                key={item}
+                href={`#${item.toLowerCase()}`}
+                className="hero-nav__link"
+                initial={{ opacity: 0, y: -6 }}
+                animate={started ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.5, delay: 0.15 + i * 0.07, ease }}
+              >
+                {item}
+              </motion.a>
+            ))}
+          </div>
         </div>
       </motion.nav>
       <div className="hero-main">
