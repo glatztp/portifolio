@@ -2767,7 +2767,6 @@ body {
   box-shadow: 0 0 8px rgba(160, 126, 212, 0.6);
 }
 
-/* ─── Easter Egg Terminal ─────────────────────────────── */
 .terminal-hint-badge {
   position: fixed;
   bottom: 2rem;
