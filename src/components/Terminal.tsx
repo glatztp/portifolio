@@ -56,10 +56,16 @@ export default function EasterEggTerminal() {
     return () => window.removeEventListener("keydown", h);
   }, [openNew, closeOne, terms]);
 
+  // Hide badge on mobile if any terminal is open
+  const isMobile = typeof window !== "undefined" && window.innerWidth < 640;
+  const badgeClass =
+    "terminal-hint-badge" +
+    (isMobile && terms.length > 0 ? " hide-on-mobile-terminal" : "");
+
   return (
     <>
       <motion.div
-        className="terminal-hint-badge"
+        className={badgeClass}
         initial={{ opacity: 0, y: 8 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.4, delay: 3 }}
