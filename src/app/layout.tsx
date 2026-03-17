@@ -2,7 +2,9 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 
 import "./globals.css";
+
 import { ThemeProvider } from "@/components/ThemeProvider";
+import SpotifyBadge from "@/features/spotify/SpotifyBadge";
 
 const inter = Inter({
   subsets: ["latin", "latin-ext"],
@@ -28,6 +30,7 @@ export default function RootLayout({
       <body className={inter.className}>
         <ThemeProvider>
           <div className="grain-overlay" aria-hidden="true" />
+          <SpotifyBadge />
           {children}
         </ThemeProvider>
       </body>
