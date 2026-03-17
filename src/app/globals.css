@@ -2770,8 +2770,8 @@ body {
 /* ─── Easter Egg Terminal ─────────────────────────────── */
 .terminal-hint-badge {
   position: fixed;
-  top: 2rem;
-  left: 1.5rem;
+  bottom: 2rem;
+  left: 2rem;
   z-index: 8000;
   display: flex;
   align-items: center;
@@ -2788,10 +2788,6 @@ body {
   user-select: none;
 }
 
-.terminal-hint-badge:hover {
-  border-color: rgba(160, 126, 212, 0.55);
-  background: rgba(40, 40, 55, 0.95);
-}
 
 .terminal-hint-slash {
   font-family: "Courier New", monospace;
