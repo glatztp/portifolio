@@ -38,27 +38,37 @@ export default function Hero({ started }: { started: boolean }) {
         style={{
           display: "flex",
           alignItems: "center",
-          justifyContent: "space-between",
+          justifyContent: "center",
         }}
       >
-        <span className="hero-nav__brand">
+        <div
+          className="hero-nav__links"
+          style={{ position: "relative", zIndex: 2 }}
+        >
+          {NAV.map((item, i) => (
+            <motion.a
+              key={item}
+              href={`#${item.toLowerCase()}`}
+              className="hero-nav__link"
+              initial={{ opacity: 0, y: -6 }}
+              animate={started ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.5, delay: 0.15 + i * 0.07, ease }}
+            >
+              {item}
+            </motion.a>
+          ))}
+        </div>
+        <div
+          style={{
+            position: "absolute",
+            right: 0,
+            top: 0,
+            height: "100%",
+            display: "flex",
+            alignItems: "center",
+          }}
+        >
           <ThemeToggle />
-        </span>
-        <div style={{ display: "flex", alignItems: "center", gap: 16 }}>
-          <div className="hero-nav__links">
-            {NAV.map((item, i) => (
-              <motion.a
-                key={item}
-                href={`#${item.toLowerCase()}`}
-                className="hero-nav__link"
-                initial={{ opacity: 0, y: -6 }}
-                animate={started ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.5, delay: 0.15 + i * 0.07, ease }}
-              >
-                {item}
-              </motion.a>
-            ))}
-          </div>
         </div>
       </motion.nav>
       <div className="hero-main">

@@ -280,8 +280,9 @@ body {
   right: 2.5rem;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   z-index: 3;
+  width: auto;
 }
 
 .hero-nav__brand {
@@ -301,6 +302,8 @@ body {
 .hero-nav__links {
   display: flex;
   gap: 2.5rem;
+  justify-content: center;
+  flex: 1 1 auto;
 }
 
 .hero-nav__link {
