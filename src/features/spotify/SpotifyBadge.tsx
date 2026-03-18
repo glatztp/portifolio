@@ -335,16 +335,16 @@ export default function SpotifyBadge() {
               <div className="spb-thumb-ph">♪</div>
             )}
           </div>
-          <span className="spb-dot" />
+
+          <div className="spb-pill-text">
+            <span className="spb-pill-name">{track.name}</span>
+            <span className="spb-pill-artist">{track.artist}</span>
+          </div>
           <span className="spb-bars">
             <span />
             <span />
             <span />
           </span>
-          <div className="spb-pill-text">
-            <span className="spb-pill-name">{track.name}</span>
-            <span className="spb-pill-artist">{track.artist}</span>
-          </div>
         </div>
 
         <div className="spb-card">
