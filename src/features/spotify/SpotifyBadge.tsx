@@ -106,7 +106,7 @@ const TRACKS = [
     album: "Lonerism",
   },
   { name: "Coqueta", artist: "Grupo Frontera", album: "Coqueta" },
-  { name: "That's My Way", artist: "Edi Rock", album: "Edi Rock" },
+  // { name: "That's My Way", artist: "Edi Rock", album: "Edi Rock" },
   { name: "Guardanapo", artist: "Rainha Musical, Maicon Vargas", album: "Guardanapo" },
   { name: "Do Luxo Pro Lixo", artist: "Rainha Musical", album: "É Bailão Meu Fio!" },
   { name: "A Lua e a Noite", artist: "Brilha Som", album: "Volume 10 - Sou Latino-americano" },
