@@ -35,6 +35,8 @@ export const COMMANDS: Record<string, string[] | (() => string[])> = {
     "  Foco       Interfaces, DX e performance",
     "  ─────────────────────────────────────────",
     "  Entusiasta por codigo limpo e UX bem feito.",
+    "",
+    "  ls -la",
   ],
 
   about: [
@@ -245,13 +247,14 @@ export const COMMANDS: Record<string, string[] | (() => string[])> = {
   ],
 
   "ls -la": [
-    "  total 64",
+    "  total 128",
     "  drwxr-xr-x  8 glatz  4096 Mar 5 09:00  .",
     "  drwxr-xr-x  3 root   4096 Jan 1 00:00  ..",
     "  -rw-------  1 glatz   420 Mar 5 08:55  .bash_history",
     "  -rw-r--r--  1 glatz   220 Jan 1 00:00  .bashrc",
     "  -rw-r--r--  1 glatz    80 Mar 5 00:00  .gitconfig",
     "  -r--------  1 glatz    64 Mar 5 00:00  .secret",
+    "  -rw-r--r--  1 glatz   512 Mar 5 08:42  .teste1    -",
     "  drwxr-xr-x  2 glatz  4096 Mar 5 09:00  hero/",
     "  drwxr-xr-x  2 glatz  4096 Mar 5 09:00  sobre/",
     "  drwxr-xr-x  2 glatz  4096 Mar 5 09:00  projetos/",
@@ -326,13 +329,15 @@ export const COMMANDS: Record<string, string[] | (() => string[])> = {
     "  export EDITOR='code'",
     "  export NODE_ENV='development'",
     "  export COFFEE_LEVEL='high'",
+    '  export GLTZ_STAGE="001_BEGIN"',
     "",
     "  alias gs='git status'",
     "  alias gl='git log --oneline'",
     "  alias dev='npm run dev'",
     "  alias cls='clear'",
+    "  alias hunt='cat .hidden' ",
     "",
-    "  echo 'ready to ship something cool.'",
+    "  echo",
   ],
 
   neofetch: () => [
@@ -441,10 +446,6 @@ export const COMMANDS: Record<string, string[] | (() => string[])> = {
     "  GITHUB          = github.com/glatztp",
     "  LINKEDIN        = linkedin.com/in/gabriel-glatz",
     "  EDITOR          = code",
-    "  COFFEE_LEVEL    = high",
-    "  MUSIC           = lofi-hiphop",
-    "  THEME           = dark",
-    "  MOOD            = building_cool_stuff",
   ],
 
   who: ["  visitor   tty1   2026-03-05 09:00 (:0)"],
@@ -682,13 +683,13 @@ export const COMMANDS: Record<string, string[] | (() => string[])> = {
   ],
 
   which: ["  uso: which <binario>"],
-  "which node":   ["  /usr/local/bin/node"],
-  "which npm":    ["  /usr/local/bin/npm"],
-  "which git":    ["  /usr/bin/git"],
-  "which code":   ["  /usr/local/bin/code"],
+  "which node": ["  /usr/local/bin/node"],
+  "which npm": ["  /usr/local/bin/npm"],
+  "which git": ["  /usr/bin/git"],
+  "which code": ["  /usr/local/bin/code"],
   "which python": ["  /usr/bin/python3"],
   "which docker": ["  /usr/bin/docker"],
-  "which bash":   ["  /bin/bash"],
+  "which bash": ["  /bin/bash"],
 
   sudo: ["  sudo: permission denied", "  Tenta nao."],
   "sudo rm -rf /": ["  sudo: permission denied", "  O portfolio esta a salvo."],
@@ -767,8 +768,16 @@ export const COMMANDS: Record<string, string[] | (() => string[])> = {
     const q = [
       ['"A persistencia e o caminho do exito."', "— Charles Chaplin"],
       ['"Menos e mais."', "— Ludwig Mies van der Rohe"],
-      ['"Codigo limpo e aquele escrito por', ' alguem que se importa."', "— Robert C. Martin"],
-      ['"Primeiro faca funcionar,', ' depois faca funcionar rapido."', "— Kent Beck"],
+      [
+        '"Codigo limpo e aquele escrito por',
+        ' alguem que se importa."',
+        "— Robert C. Martin",
+      ],
+      [
+        '"Primeiro faca funcionar,',
+        ' depois faca funcionar rapido."',
+        "— Kent Beck",
+      ],
       ['"Simplicidade e a sofisticacao final."', "— Leonardo da Vinci"],
     ];
     const pick = q[Math.floor(Math.random() * q.length)];
@@ -782,8 +791,15 @@ export const COMMANDS: Record<string, string[] | (() => string[])> = {
   quote: () => {
     const q = [
       ['"Talk is cheap. Show me the code."', "— Linus Torvalds"],
-      ['"Any fool can write code a computer can understand."', "— Martin Fowler"],
-      ['"Debugging is twice as hard as writing', ' the code in the first place."', "— Brian Kernighan"],
+      [
+        '"Any fool can write code a computer can understand."',
+        "— Martin Fowler",
+      ],
+      [
+        '"Debugging is twice as hard as writing',
+        ' the code in the first place."',
+        "— Brian Kernighan",
+      ],
       ['"Make it work, make it right, make it fast."', "— Kent Beck"],
       ['"First, solve the problem. Then, write the code."', "— John Johnson"],
     ];
@@ -794,15 +810,6 @@ export const COMMANDS: Record<string, string[] | (() => string[])> = {
       "  ─────────────────────────────────────────",
     ];
   },
-
-  weather: [
-    "  WEATHER — Glatz City",
-    "  ─────────────────────────────────────────",
-    "  Condicao    Ensolarado, alta criatividade",
-    "  Temp        24 C",
-    "  Vento       Levemente cafeinado",
-    "  Previsao    Commits ao longo do dia",
-  ],
 
   matrix: [],
 
@@ -851,11 +858,7 @@ export const COMMANDS: Record<string, string[] | (() => string[])> = {
     "  Feito com codigo limpo e cafe.",
   ],
 
-  ascii: [
-    "  (\\_/)",
-    "  ( o.o)",
-    "  / > []  codigo pronto.",
-  ],
+  ascii: ["  (\\_/)", "  ( o.o)", "  / > []  codigo pronto."],
 
   bio: [
     "  Gabriel Glatz — Software Developer",
@@ -868,19 +871,201 @@ export const COMMANDS: Record<string, string[] | (() => string[])> = {
   ],
 
   history: [],
-  clear: [], cls: [], exit: [], new: [],
+  clear: [],
+  cls: [],
+  exit: [],
+  new: [],
   touch: ["  uso: touch <arquivo>"],
   mkdir: ["  uso: mkdir <pasta>"],
-  rm:    ["  uso: rm <arquivo>"],
+  rm: ["  uso: rm <arquivo>"],
   rmdir: ["  uso: rmdir <pasta>"],
-  echo:  ["  uso: echo <mensagem>"],
+  echo: ["  uso: echo <mensagem>"],
+
+  "whoami /all": [
+    "  USER INFORMATION",
+    "  ----------------",
+    "  USER NAME        visitor\\glatz",
+    "  SID              S-1-5-21-1048576-1337-2026",
+    "  GROUPS           Users, Developers, Terminal Operators",
+    "  PRIVILEGES       SeDebugPrivilege disabled",
+    "  HINT             inspect the staged payload with 'type .secret'",
+  ],
+
+  "ipconfig /all": [
+    "  Windows IP Configuration",
+    "  ------------------------",
+    "  Host Name . . . . . . . . . : glatz-machine",
+    "  DNS Suffix Search List . . : glatz.dev",
+    "  IPv4 Address. . . . . . . . : 192.168.1.100",
+    "  Default Gateway . . . . . . : 192.168.1.1",
+  ],
+
+  "tasklist /v": [
+    "  Image Name                     PID Session Name        Mem Usage Status",
+    "  node.exe                       2345 Console             84,912 K Running",
+    "  Code.exe                       1880 Console            193,204 K Running",
+    "  explorer.exe                   4024 Console             45,112 K Running",
+    "  terminal.exe                   4042 Console             12,288 K Idle",
+  ],
+
+  "netstat -ano": [
+    "  Proto  Local Address          Foreign Address        State      PID",
+    "  TCP    127.0.0.1:3000         0.0.0.0:0              LISTENING  2345",
+    "  TCP    127.0.0.1:9229         0.0.0.0:0              LISTENING  2345",
+    "  TCP    0.0.0.0:443            0.0.0.0:0              LISTENING  1880",
+    "  UDP    0.0.0.0:5353           *:*                               4024",
+  ],
+
+  "get-childitem env:": [
+    "  Name                           Value",
+    "  ----                           -----",
+    "  USER                           visitor",
+    "  GLTZ_TOKEN                     c2VjcmV0LWRlY29kZS1tZS1maXJzdA==",
+    "  PSModulePath                   C:\\Users\\visitor\\Documents\\PowerShell\\Modules",
+    "  HINT                           use 'certutil -decode .secret badge.txt'",
+  ],
+
+  "type .secret": [
+    "  Q0VSVElGSUNBVEU6IEdMVHotRUxJVEUtMjAyNg==",
+    "  ----------------",
+    "  HINT: certutil -decode .secret badge.txt",
+  ],
+
+  "get-content .secret": [
+    "  Q0VSVElGSUNBVEU6IEdMVHotRUxJVEUtMjAyNg==",
+    "  ----------------",
+    "  HINT: certutil -decode .secret badge.txt",
+  ],
+
+  "certutil -decode .secret badge.txt": [
+    "Input Length = 44",
+    "Output Length = 33",
+    "CertUtil: -decode command completed successfully.",
+    "",
+    "-----BEGIN CERTIFICATE-----",
+    "GLTZ-ELITE-2026",
+    "visitor@glatz-machine",
+    "-----END CERTIFICATE-----",
+    "",
+    "access: granted",
+    "status: verified",
+  ],
+
+  "get-filehash src/components/terminal/terminalcommands.ts -algorithm sha256":
+    [
+      "Algorithm       Hash",
+      "---------       ----",
+      "SHA256          a7b3c5d9e1f4a8b2c6d0e3f7a1b5c9d2e4f8a0b3c5d7e9f1a3b5c7d9e1f3a5",
+    ],
+
+  "cat .hidden": [
+    "d0c1a5f3c2e1b4a9",
+    "stage: 2/7",
+    "status: hunter_mode=true",
+    "next: git log --all --grep STAGE",
+  ],
+
+  "git log --all --grep=STAGE": [
+    "a3f91c2 [STAGE_002] - discovery",
+    "7b2e4d1 [STAGE_003] - analysis",
+    "5c3a1f7 [STAGE_004] - payload_decode",
+    "2e8d4a6 [STAGE_005] - verification",
+  ],
+
+  "git show 5c3a1f7": [
+    "commit 5c3a1f7a8b9c0d1e2f3a4b5c6d7e8f9a0b1c2d3e",
+    "Author: glatz <glatz@machine>",
+    "Date: Sun May 5 14:32:11 2026 -0300",
+    "",
+    "[STAGE_004] unlock env vars",
+    "",
+    "payload: 7375706572736563726574",
+    "hint: env | grep gltz",
+  ],
+
+  "md5sum TerminalCommands.ts": [
+    "c3a7f2e8d1b4a9f6e3c0d5a2b8f1e4c7  TerminalCommands.ts",
+  ],
+
+  "hexdump -C TerminalCommands.ts | grep GLTZ": [
+    "00001c40  47 4c 54 5a 2d 45 4c 49  54 45 2d 32 30 32 36",
+    "00002e80  7375706572736563726574  |  supersecret|",
+    "00003f20  c3VwZXJzZWNyZXRwYXNzcGhyYXNl",
+  ],
+
+  "echo c3VwZXJzZWNyZXRwYXNzcGhyYXNl | base64 -d": () => [
+    "supersecretpassphrase",
+  ],
+
+  "find . -name *elite* -o -name *hunter* 2>/dev/null": [
+    "./.gltz/elite_access",
+    "./.git/hooks/pre-commit-hunter",
+    "./.secret_manifest",
+  ],
+
+  "ls -la .gltz/": [
+    "total 32",
+    "drwx------  glatz glatz   4096 May  5 14:00 .",
+    "drwxr-xr-x  glatz glatz   4096 May  5 14:00 ..",
+    "-rw-r--r--  glatz glatz   1024 May  5 08:55 elite_access",
+    "-rw-r--r--  glatz glatz    512 May  5 07:10 cert.signature",
+    "-rw-r--r--  glatz glatz    256 May  5 06:15 final_key.hash",
+  ],
+
+  "cat .gltz/elite_access": [
+    "-----BEGIN CERTIFICATE-----",
+    "MIIDXTCCAkWgAwIBAgIJAJC1/wZc7d8GMA0GCSqGSIb3",
+    "-----END CERTIFICATE-----",
+    "",
+    "verify: sha256sum .gltz/cert.signature",
+    "then: gltz-verify <hash>",
+  ],
+
+  "sha256sum .gltz/cert.signature": [
+    "a7b3c5d9e1f4a8b2c6d0e3f7a1b5c9d2e4f8a0b3c5d7e9f1a3b5c7d9e1f3a5  .gltz/cert.signature",
+  ],
+
+  "gltz-verify a7b3c5d9e1f4a8b2c6d0e3f7a1b5c9d2e4f8a0b3c5d7e9f1a3b5c7d9e1f3a5":
+    () => {
+      const randomId = Math.floor(Math.random() * 100000)
+        .toString()
+        .padStart(5, "0");
+      return [
+        "certificate verified: OK",
+        "signature: valid",
+        "issuer: GLTZ_ELITE_CA",
+        "serial: GLTZ-ELITE-" + randomId,
+        "",
+        "access granted.",
+        "elite mode activated.",
+        "",
+        "type 'gltz-achievements' to check status.",
+      ];
+    },
+
+  "gltz-achievements": () => [
+    "achievements_unlocked:",
+    "  - file_system_detective",
+    "  - git_archaeologist",
+    "  - cryptography_solver",
+    "  - hash_master",
+    "  - treasure_hunter",
+    "  - terminal_warrior",
+    "  - master_hacker",
+    "",
+    "status: elite_member",
+    "access_level: 7/7",
+  ],
 
   help: [
     "  ─────────────────────────────────────────────────────────────────",
     "  GLATZ TERMINAL  v1.0.0",
     "  ─────────────────────────────────────────────────────────────────",
     hrow("  PORTFOLIO", "SISTEMA"),
-    hrow("  ────────────────────────────────", "────────────────────────────────"),
+    hrow(
+      "  ────────────────────────────────",
+      "────────────────────────────────",
+    ),
     hrow("  whoami       sobre o dev", "neofetch     info do sistema"),
     hrow("  about        resumo pessoal", "uptime       tempo ativo"),
     hrow("  skills       stack tecnica", "status       painel sistema"),
@@ -893,7 +1078,10 @@ export const COMMANDS: Record<string, string[] | (() => string[])> = {
     hrow("  cv           curriculo", "uname -a     kernel"),
     "  ─────────────────────────────────────────────────────────────────",
     hrow("  ACOES REAIS", "UTILITARIOS"),
-    hrow("  ────────────────────────────────", "────────────────────────────────"),
+    hrow(
+      "  ────────────────────────────────",
+      "────────────────────────────────",
+    ),
     hrow("  open <destino>   abre link", "calc <expr>  calculadora"),
     hrow("  copy <campo>     clipboard", "uuid         gera UUID v4"),
     hrow("  download vcard   baixa .vcf", "timestamp    unix timestamp"),
@@ -903,7 +1091,10 @@ export const COMMANDS: Record<string, string[] | (() => string[])> = {
     hrow("  tweet            abre twitter", "todo         lista de tarefas"),
     "  ─────────────────────────────────────────────────────────────────",
     hrow("  GIT", "REDE"),
-    hrow("  ────────────────────────────────", "────────────────────────────────"),
+    hrow(
+      "  ────────────────────────────────",
+      "────────────────────────────────",
+    ),
     hrow("  git log      commits", "ping         pingar host"),
     hrow("  git log --oneline", "traceroute   rota de rede"),
     hrow("  git status   status repo", "ifconfig     interfaces"),
@@ -913,7 +1104,10 @@ export const COMMANDS: Record<string, string[] | (() => string[])> = {
     hrow("  git shortlog autores", "ssh          conectar server"),
     "  ─────────────────────────────────────────────────────────────────",
     hrow("  NPM / NODE", "ARQUIVOS"),
-    hrow("  ────────────────────────────────", "────────────────────────────────"),
+    hrow(
+      "  ────────────────────────────────",
+      "────────────────────────────────",
+    ),
     hrow("  npm run dev  servidor local", "ls / ls -la  listar"),
     hrow("  npm run build  producao", "tree         arvore dirs"),
     hrow("  npm run lint   linting", "cat          ler arquivo"),
@@ -922,18 +1116,24 @@ export const COMMANDS: Record<string, string[] | (() => string[])> = {
     hrow("  node         REPL", "vim / nano   editores"),
     "  ─────────────────────────────────────────────────────────────────",
     hrow("  HACKER", "DIVERSAO"),
-    hrow("  ────────────────────────────────", "────────────────────────────────"),
+    hrow(
+      "  ────────────────────────────────",
+      "────────────────────────────────",
+    ),
     hrow("  scan         varrer rede", "joke         piada dev"),
     hrow("  connect      conectar alvo", "coffee       nivel cafeina"),
     hrow("  dump         extrair dados", "flip         cara ou coroa"),
     hrow("  nmap         portas", "matrix       entrar na matrix"),
     hrow("  whois        dominio", "fortune      frase aleatoria"),
     hrow("  traceroute   rota rede", "quote        quote dev"),
-    hrow("  ssh          conectar server", "weather      previsao tempo"),
-    hrow("  sudo         tentar sorte", "motd         mensagem do dia"),
+    hrow("  ssh          conectar server", "motd         mensagem do dia"),
+    hrow("  sudo         tentar sorte"),
     "  ─────────────────────────────────────────────────────────────────",
     hrow("  TERMINAL", "INFO"),
-    hrow("  ────────────────────────────────", "────────────────────────────────"),
+    hrow(
+      "  ────────────────────────────────",
+      "────────────────────────────────",
+    ),
     hrow("  clear / cls  limpar tela", "changelog    historico versoes"),
     hrow("  history      historico", "credits      quem fez"),
     hrow("  exit / Esc   fechar janela", "version      versao terminal"),
