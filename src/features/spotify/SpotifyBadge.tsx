@@ -107,6 +107,19 @@ const TRACKS = [
   },
   { name: "Coqueta", artist: "Grupo Frontera", album: "Coqueta" },
   { name: "That's My Way", artist: "Edi Rock", album: "Edi Rock" },
+  { name: "Guardanapo", artist: "Rainha Musical, Maicon Vargas", album: "Guardanapo" },
+  { name: "Do Luxo Pro Lixo", artist: "Rainha Musical", album: "É Bailão Meu Fio!" },
+  { name: "A Lua e a Noite", artist: "Brilha Som", album: "Volume 10 - Sou Latino-americano" },
+  { name: "Grito de Liberdade", artist: "Grupo Rodeio", album: "Os 16 Grandes Sucessos de Grupo Rodeio" },
+  { name: "Tranco Véio Fandangueiro", artist: "Grupo Portal Gaucho", album: "O Tranco Véio Continua" },
+  { name: "Ele Te Trai - Ao Vivo", artist: "Banda San Marino", album: "San Marino Ao Vivo na Argentina" },
+  { name: "O Pedreiro", artist: "Rainha Musical", album: "É Bailão Meu Fio!" },
+  { name: "Querida Amiga", artist: "Brilha Som", album: "Volume 10 - Sou Latino-americano" },
+  { name: "Vaza", artist: "Banda San Marino", album: "Tô Melhor Agora" },
+  { name: "O Casamento da Doralicia - Ao Vivo", artist: "Grupo Minuano", album: "Vaneira (Ao Vivo)" },
+  { name: "Morena", artist: "JUSV Juliana e Juliano", album: "Morena" },
+  { name: "Vou Pra Santa Catarina", artist: "Terceira Dimensão", album: "O Melhor do Terceira Dimensão, Vol. 1" },
+  { name: "Menino Campeiro", artist: "Paulinho Mocelin", album: "Menino Campeiro" },
 ];
 
 type TrackData = { art: string; preview: string | null; duration: number };
@@ -303,7 +316,7 @@ export default function SpotifyBadge() {
     const audio = new Audio(preview);
     audio.volume = muted ? 0 : 0.12;
     audio.loop = true;
-    audio.play().catch(() => {});
+    audio.play().catch(() => { });
     audioRef.current = audio;
     return () => {
       audio.pause();
